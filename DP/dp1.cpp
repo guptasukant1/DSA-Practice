@@ -451,6 +451,7 @@ int cutSegments(int n, int x, int y, int z){
 // todo | The problem states that we have to find the maximum profit that can be obtained by cutting the rod into pieces.
 // todo | There is a prices array which contains the price of each piece of the rod.
 // todo | Since overlapping subproblems are there just like in the previous question, we can use dynamic programming to solve this problem.
+// todo | We need to consider the cost of the current segment and the maximum profit that can be obtained from the remaining segment.
 int cutRod(int price[], int n){
     int dp[n + 1];
     dp[0] = 0;
