@@ -469,6 +469,41 @@ int cutRod(int price[], int n){
     return dp[n];
 }
 
+// $ Count Derangements Problem
+// todo | The problem states that we have to find the number of derangements of n objects.
+// todo | Derangement means that no object is in its original position.
+// todo | first case: To swap the first element with any of the remaining n - 1 elements. So, we have ans as (n - 1) * solve(n - 2)
+// todo | Indexes remaining are n - 2 because we have already used two indexes and we have to find the derangement of the remaining n - 2 elements.
+// todo | second case: To swap the first element with the n - 1th element and then swapping the n - 1th element with another element. So, we have ans as solve(n - 1)
+// todo | Indexes remaining are n - 1 because we have already used one index and we have to find the derangement of the remaining n - 1 elements.
+// todo | Let 0 be placed at index i. There are now two possibilities, depending on whether or not element i is placed at 0 in return.
+// todo | i is placed at 0: This case is equivalent to solving the problem for n-2 elements as two elements have just swapped their positions.
+// todo | i is not placed at 0: This case is equivalent to solving the problem for n-1 elements as now there are n-1 elements, n-1 positions and every element has n-2 choices.
+// $ Count Derangements Problem using recursion
+// ! TLE due to repeating subproblems
+#define MOD 1000000007
+long long int CountDer(int n){
+    if (n <= 1)
+        return 0;
+    if (n == 2)
+        return 1;
+
+    return ((n - 1)%MOD * (CountDer(n - 2)%MOD + CountDer(n - 1)%MOD)) %MOD;
+}
+
+// $ Count Derangements Problem using recursion + memoization (top down approach)
+int solveCDRec(int n, vector<long long int> &dp){
+    
+}
+long long int CountDer(int n){
+    if (n <= 1)
+        return 0;
+    if (n == 2)
+        return 1;
+
+    return ((n - 1)%MOD * (CountDer(n - 2)%MOD + CountDer(n - 1)%MOD)) %MOD;
+}
+
 
 int main()
 {
