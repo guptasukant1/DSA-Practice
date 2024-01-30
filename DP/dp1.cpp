@@ -469,7 +469,7 @@ int cutRod(int price[], int n){
     return dp[n];
 }
 
-// $ Count Derangements Problem
+// $ Count Derangements Problem. CN Platform
 // todo | The problem states that we have to find the number of derangements of n objects.
 // todo | Derangement means that no object is in its original position.
 // todo | first case: To swap the first element with any of the remaining n - 1 elements. So, we have ans as (n - 1) * solve(n - 2)
