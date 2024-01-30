@@ -492,18 +492,45 @@ long long int CountDer(int n){
 }
 
 // $ Count Derangements Problem using recursion + memoization (top down approach)
-int solveCDRec(int n, vector<long long int> &dp){
-    
-}
-long long int CountDer(int n){
+int solveCDRecMem(int n, vector<long long int> &dp)
+{
     if (n <= 1)
         return 0;
     if (n == 2)
         return 1;
 
-    return ((n - 1)%MOD * (CountDer(n - 2)%MOD + CountDer(n - 1)%MOD)) %MOD;
-}
+    if (dp[n] != -1)
+    {
+        return dp[n];
+    }
 
+    dp[n] = ((n - 1) % MOD * (solveCDRecMem(n - 2, dp) % MOD + solveCDRecMem(n - 1, dp) % MOD)) % MOD;
+    return dp[n];
+}
+long long int CountDer(int n)
+{
+    vector<long long int> dp(n + 1, -1);
+    return solveCDRecMem(n, dp);
+}
+// $ Count Derangements Problem using tabulation (bottom up approach)
+int solveCDTab(int n)
+{
+    vector<long long int> dp(n + 1, 0);
+    dp[2] = 1;
+
+    for(int i = 3; i <= n; i++){
+        long long int first = dp[i - 1] % MOD;
+        long long int second = dp[i - 2] % MOD;
+        long long int sum = (first + second) % MOD;
+        long long int ans = ((i - 1) % MOD * sum) % MOD;
+        dp[i] = ans;
+    }
+    return dp[n];
+}
+long long int CountDer(int n)
+{
+    return solveCDTab(n);
+}
 
 int main()
 {
