@@ -531,6 +531,24 @@ long long int CountDer(int n)
 {
     return solveCDTab(n);
 }
+// $ Count Derangements Problem using Space Optimization
+int solveCDSpaceOpt(int n)
+{
+    long long int prev2 = 0;
+    long long int prev1 = 1;
+
+    for (int i = 3; i <= n; i++)
+    {
+        long long int ans = ((i - 1) % MOD * (prev1 % MOD + prev2 % MOD) % MOD) % MOD;
+        prev2 = prev1;
+        prev1 = ans;
+    }
+    return prev1;
+}
+long long int CountDer(int n)
+{
+    return solveCDSpaceOpt(n);
+}
 
 int main()
 {
