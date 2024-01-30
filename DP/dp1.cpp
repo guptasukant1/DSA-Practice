@@ -492,6 +492,8 @@ long long int CountDer(int n){
 }
 
 // $ Count Derangements Problem using recursion + memoization (top down approach)
+// $ TC: O(n)
+// $ SC: O(n) + O(n) = O(n)
 int solveCDRecMem(int n, vector<long long int> &dp)
 {
     if (n <= 1)
@@ -513,6 +515,8 @@ long long int CountDer(int n)
     return solveCDRecMem(n, dp);
 }
 // $ Count Derangements Problem using tabulation (bottom up approach)
+// $ TC: O(n)
+// $ SC: O(n)
 int solveCDTab(int n)
 {
     vector<long long int> dp(n + 1, 0);
@@ -532,6 +536,8 @@ long long int CountDer(int n)
     return solveCDTab(n);
 }
 // $ Count Derangements Problem using Space Optimization
+// $ TC: O(n)
+// $ SC: O(1)
 int solveCDSpaceOpt(int n)
 {
     long long int prev2 = 0;
