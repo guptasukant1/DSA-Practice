@@ -612,7 +612,6 @@ int kthAncestor(node* root, int k, int node){
 // todo | To find the maximum sum we can either inlude the elements of a level or exclude the elements of a level
 // todo | If we include the elements of a level, then we cannot include the elements of the next level
 // todo | We can use a pair to store the maximum sum of including and excluding the elements of a level
-
 pair<int, int> solveMaxSum(node *root){
     if(root == NULL){
         pi p = make_pair(0, 0);
