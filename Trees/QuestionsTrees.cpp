@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+#define pi pair<int, int>
+
 class node{
 public:
     int data;
@@ -605,6 +607,32 @@ int kthAncestor(node* root, int k, int node){
     }
 }
 
+
+// $ Maximum sum of non adjacent nodes
+// todo | To find the maximum sum we can either inlude the elements of a level or exclude the elements of a level
+// todo | If we include the elements of a level, then we cannot include the elements of the next level
+// todo | We can use a pair to store the maximum sum of including and excluding the elements of a level
+
+pair<int, int> solveMaxSum(node *root){
+    if(root == NULL){
+        pi p = make_pair(0, 0);
+        return p;
+    }
+
+    pi left = solveMaxSum(root->left);
+    pi right = solveMaxSum(root->right);
+
+    pi res;
+    res.first = root->data + left.second + right.second;
+    res.second = max(left.first, left.second) + max(right.first, right.second);
+
+    return res;
+}
+
+int getMaxSum(node* root){
+    pair<int, int> ans = solveMaxSum(root);
+    return max(ans.first, ans.second);
+}
 
 
 
