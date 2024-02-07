@@ -202,6 +202,11 @@ bool isSumTree(node* root){
     return isSumTreeFast(root).first;
 }
 
+// $ Spiral Traversal of a tree
+// todo | Here, the tree needs to be printed in a spiral order.
+// todo | All the nodes present at a level are to be printed in one direction.
+// todo | The nodes for the next level are printed in the opposite direction.
+
 // $ TC: O(n)
 // $ SC: O(n)
 vector<int> spiralTraversal(node* root){
