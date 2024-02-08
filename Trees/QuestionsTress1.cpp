@@ -59,6 +59,7 @@ node *solveInPre(int in[], int pre[], int &preOrderIndex, int InorderStart, int 
     node *root = new node(element);
     // $ Find the position of the element in the inorder
     int position = findPosition(in, element, n);
+    // ! To avoid calling the findPosition function again, we can use a map to store the position of the elements in the inorder
     vector<int> position = nodeToIndex[element];
     int i;
     // $ loop through the positions to find the position in the range of the inorder subtree
@@ -68,7 +69,6 @@ node *solveInPre(int in[], int pre[], int &preOrderIndex, int InorderStart, int 
         if (position[i] >= InorderStart && position[i] <= InorderEnd)
             break;
     }
-    // ! To avoid calling the findPosition function again, we can use a map to store the position of the elements in the inorder
 
     // $ Find the left and right subtree
     // $ The position[i]th element will make sure that the tree is made by using the correct index of the given element.
