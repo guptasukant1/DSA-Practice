@@ -29,7 +29,7 @@ node* buildTree(node* root){
     return root;
 }
 
-
+// $ TC: O(n^2) -> O(nlogn)
 // $ Construct a tree from inorder and preorder
 // todo | Find the root from the preorder and then find the left and right subtree from the inorder
 // todo | Then recursively call the function for left and right subtree
@@ -40,11 +40,11 @@ int findPosition(int in[], int element, int n){
     }
     return -1;
 }
-void createMapping(int, in[], map<int, vector<int>> &nodeToIndex, int n)
+void createMapping(int in[], map<int, vector<int>> &nodeToIndex, int n)
 {
     for(int i = 0; i < n; i++){
-        nodeToIndex[in[i]] = i;
-        // ! This will not work in case of repeating values int the in[] array.
+        // nodeToIndex[in[i]] = i;
+        // ! This will not work in case of repeating values in the in[] array.
         // $ To handle this, we can store the indices of each element in a vector.
         nodeToIndex[in[i]].push_back(i);
     }
@@ -57,9 +57,9 @@ node *solveInPre(int in[], int pre[], int &preOrderIndex, int InorderStart, int 
     // $ Create a root node from the preorder. The preOrderIndex is updated after the root is created
     int element = pre[preOrderIndex++];
     node *root = new node(element);
-    // $ Find the position of the element in the inorder
-    int position = findPosition(in, element, n);
-    // ! To avoid calling the findPosition function again, we can use a map to store the position of the elements in the inorder
+    // ! Find the position of the element in the inorder
+    // int position = findPosition(in, element, n);
+    // * To avoid calling the findPosition function again, we can use a map to store the position of the elements in the inorder
     vector<int> position = nodeToIndex[element];
     int i;
     // $ loop through the positions to find the position in the range of the inorder subtree
@@ -86,6 +86,41 @@ node* buildTreeFromInPre(int in[], int pre[], int n){
     return ans;
 }
 
+// $ TC: O(nlogn)
+// $ Construct a tree from inorder and postorder
+void createMapping1(int in[], map<int, vector<int>> nodeToIndex, int n)
+{
+    for (int i = 0; i < n; i++)
+    {
+        nodeToIndex[in[i]].push_back(i);
+    }
+}
+node *solveInPost(int in[], int post[], int &postOrderIndex, int InorderStart, int InorderEnd, int n, map<int, vector<int>> &nodeToIndex)
+{
+    if (postOrderIndex < 0 || InorderStart > InorderEnd)
+        return NULL;
+
+    int element = post[postOrderIndex--];
+    node *root = new node(element);
+    vector<int> position = nodeToIndex[element];
+    int i;
+    for (i = 0; i < n; i++)
+    {
+        if (position[i] >= InorderStart && position[i] <= InorderEnd)
+            break;
+    }
+    root->right = solveInPost(in, post, postOrderIndex, position[i] + 1, InorderEnd, n, nodeToIndex);
+    root->left = solveInPost(in, post, postOrderIndex, InorderStart, position[i] - 1, n, nodeToIndex);
+    return root;
+}
+node *buildTreeFromInPost(int in[], int post[], int n)
+{
+    int postOrderIndex = 0;
+    map<int, vector<int>> nodeToIndex;
+    createMapping1(in, nodeToIndex, n);
+    node *ans = solveInPost(in, post, postOrderIndex, n - 1, 0, n, nodeToIndex);
+    return ans;
+}
 int main(){
     node* root = NULL;
     root = buildTree(root);
