@@ -45,7 +45,6 @@ node* reverse2(node* head){
 }
 
 node* reverse(node* &head){
-
     if(head == NULL || head->next == NULL){
         return head;
     }
@@ -85,6 +84,13 @@ node* middleElement(node *head){
     return slow;
 }
 
+// $ Reverse LL in groups of k
+// todo | Reverse the first sub-list of size k. While reversing keep track of the next node and previous node.
+// todo | Let the pointer to the next node be next and pointer to the previous node be prev.
+
+
+
+
 int main(){
 
     int T, n, l, firstdata;
@@ -110,7 +116,7 @@ int main(){
             tail = tail->next;
         }
 
-        int x = middleElement(head);
+        node *x = middleElement(head);
         cout << x << endl;
         head = reverse2(head);
         printList(head);

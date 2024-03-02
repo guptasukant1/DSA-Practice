@@ -121,6 +121,91 @@ node *buildTreeFromInPost(int in[], int post[], int n)
     node *ans = solveInPost(in, post, postOrderIndex, n - 1, 0, n, nodeToIndex);
     return ans;
 }
+
+// $ Burning a binary tree
+// $ TC: O(n)
+// $ SC: O(n) + O(n)
+// todo | Given a binary tree and a target node, the task is to find the minimum time required to burn the complete binary tree if the target node is set on fire.
+// * createParentMapping is used to create a mapping of the nodes with their parent nodes and also returns the target node.
+node *createParentMapping(node *root, int target, map<node *, node *> &nodeToParent)
+{
+    node *result = NULL;
+    queue<node *> q;
+    q.push(root);
+    nodeToParent[root] = NULL;
+
+    while (!q.empty())
+    {
+        node *front = q.front();
+        q.pop();
+
+        if (front->data == target)
+            result = front;
+        if (front->left)
+        {
+            nodeToParent[front->left] = front;
+            q.push(front->left);
+        }
+        if (front->right)
+        {
+            nodeToParent[front->right] = front;
+            q.push(front->right);
+        }
+    }
+    return result;
+}
+// * burnTree is used to find the minimum time required to burn the complete binary tree if the target node is set on fire.
+int burnTree(node *root, map<node *, node *> nodeToParent)
+{
+    map<node *, bool> visited;
+    queue<node *> q;
+    q.push(root);
+    visited[root] = true;
+
+    int ans = 0;
+
+    while (!q.empty())
+    {
+        bool flag = 0;
+
+        int size = q.size();
+        for (int i = 0; i < size; i++)
+        {
+            node *front = q.front();
+            q.pop();
+            if (front->left && !visited[front->left])
+            {
+                flag = 1;
+                q.push(front->left);
+                visited[front->left] = true;
+            }
+            if (front->right && !visited[front->right])
+            {
+                flag = 1;
+                q.push(front->right);
+                visited[front->right] = true;
+            }
+            if (nodeToParent[front] && !visited[nodeToParent[front]])
+            {
+                flag = 1;
+                q.push(nodeToParent[front]);
+                visited[nodeToParent[front]] = true;
+            }
+            if (flag)
+                ans++;
+        }
+    }
+    return ans;
+}
+int minTime(node *root, int target)
+{
+    map<node *, node *> nodeToParent;
+    node *targetNode = createParentMapping(root, target, nodeToParent);
+
+    int ans = burnTree(targetNode, nodeToParent);
+    return ans;
+}
+
 int main(){
     node* root = NULL;
     root = buildTree(root);
