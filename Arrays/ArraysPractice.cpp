@@ -1,6 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+// $ Set zeroes matrix
+// $ Given an m x n matrix. If an element is 0, set its entire row and column to 0. Do it in-place.
 class Solution
 {
 public:
@@ -28,14 +30,12 @@ public:
                 if (matrix[i][j] == 0)
                 {
                     matrix[i][0] = 0;
+
                     if (j != 0)
-                    {
                         matrix[0][j] = 0;
-                    }
+
                     else
-                    {
                         col0 = 0;
-                    }
                 }
             }
         }
@@ -71,6 +71,18 @@ public:
 };
 
 
-int main(){
-
+int main()
+{
+    Solution obj;
+    vector<vector<int>> matrix = {{1, 1, 1}, {1, 0, 1}, {1, 1, 1}};
+    obj.setZeroes(matrix);
+    for (int i = 0; i < matrix.size(); i++)
+    {
+        for (int j = 0; j < matrix[0].size(); j++)
+        {
+            cout << matrix[i][j] << " ";
+        }
+        cout << endl;
+    }
+    return 0;
 }
