@@ -27,10 +27,33 @@ vvi mergeOverlap(vvi &arr){
                 break;
             }
         }
+        ans.push_back({start, end});
     }
+    return ans;
 }
 
-int main(){
+// $ Optimized Approach
+vvi mergeOverlap1(vvi &arr)
+{
+    int n = arr.size();
+    sort(arr.begin(), arr.end());
+    vvi ans;
+    for(int i = 0; i < n; i++){
+        if (ans.empty() || arr[i][0] > ans.back()[1])
+        {
+            // * Current interval not a part of previous interval
+            ans.push_back(arr[i]);
+        }
+        else{
+            // * Current interval is a part of the previous interval
+            ans.back()[1] = max(ans.back()[1], arr[i][1]);
+        }
+    }
+    return ans;
+}
+
+int main()
+{
     vvi arr = {{1, 3}, {8, 10}, {2, 6}, {15, 18}};
     vvi ans = mergeOverlap(arr);
     cout << "The merged intervals are: "
@@ -38,6 +61,13 @@ int main(){
     for (auto it : ans)
     {
         cout << "[" << it[0] << ", " << it[1] << "] ";
+    }
+    cout << endl;
+    vvi arr1 = {{1, 3}, {8, 10}, {2, 6}, {15, 18}};
+    vvi ans1 = mergeOverlap1(arr1);
+    for (auto i : ans1)
+    {
+        cout << "[" << i[0] << ", " << i[1] << "] ";
     }
     cout << endl;
     return 0;
