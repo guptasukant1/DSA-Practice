@@ -29,9 +29,11 @@ vi findMissingRep(vi a){
 }
 
 // $ Better Approach [Hashing]
+// $ TC: O(2*n) | SC: O(n)
 vi findMissingRepBe(vi a){
     int n = a.size();
     vi hash(n + 1, 0);
+    // * Set the hash arr with frequencies
     for (int i = 0; i < n; i++)
         hash[a[i]]++;
 
@@ -48,11 +50,31 @@ vi findMissingRepBe(vi a){
     return {rep, miss};
 }
 
+// $ Optimal Approach 1 [Maths [AP]]
+
+vi findMissingRepO1(vi a){
+    
+}
+
+
+
 int main()
 {
     vector<int> a = {3, 1, 2, 5, 4, 6, 7, 5};
     vector<int> ans = findMissingRep(a);
     cout << "The repeating and missing numbers are: {"
          << ans[0] << ", " << ans[1] << "}\n";
+    vector<int> a1 = {3, 1, 2, 5, 4, 6, 7, 5};
+    vector<int> ans1 = findMissingRepBe(a1);
+    cout << "The repeating and missing numbers are: {"
+         << ans1[0] << ", " << ans1[1] << "}\n";
+    vector<int> a2 = {3, 1, 2, 5, 4, 6, 7, 5};
+    vector<int> ans2 = findMissingRep(a2);
+    cout << "The repeating and missing numbers are: {"
+         << ans2[0] << ", " << ans2[1] << "}\n";
+    vector<int> a3 = {3, 1, 2, 5, 4, 6, 7, 5};
+    vector<int> ans3 = findMissingRep(a3);
+    cout << "The repeating and missing numbers are: {"
+         << ans3[0] << ", " << ans3[1] << "}\n";
     return 0;
 }
