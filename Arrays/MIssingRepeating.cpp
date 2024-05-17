@@ -7,6 +7,7 @@ using namespace std;
 // $ Given an unsorted array of size n. Array elements are in the range from 1 to n. One number from set {1, 2, …n} is missing and one number occurs twice in the array. Find these two numbers.
 
 // $ Brute Force Approach
+// $ TC: O(N^2) | SC: O(1)
 vi findMissingRep(vi a){
     int n = a.size();
     int repeating = -1, missing =  -1;
@@ -21,13 +22,31 @@ vi findMissingRep(vi a){
             repeating = i;
         else if(count == 0)
             missing = i;
-        if(repeating == -1 && missing == -1)
+        if(repeating != -1 && missing != -1)
             break;
     }
     return {repeating, missing};
 }
 
+// $ Better Approach [Hashing]
+vi findMissingRepBe(vi a){
+    int n = a.size();
+    vi hash(n + 1, 0);
+    for (int i = 0; i < n; i++)
+        hash[a[i]]++;
 
+    int rep = -1, miss = -1;
+    for(int i = 1; i <= n; i++){
+        if(hash[i] == 2)
+            rep = i;
+        else if(hash[i] == 0)
+            miss = i;
+
+        if(rep != -1 && miss != -1)
+            break;
+    }
+    return {rep, miss};
+}
 
 int main()
 {
