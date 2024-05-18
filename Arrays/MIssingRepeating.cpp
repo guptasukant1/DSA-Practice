@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 #define vi vector<int>
-
+#define ll long long
 
 // $ Find the missing and repeating nos in an array of 1-n elements.
 // $ Given an unsorted array of size n. Array elements are in the range from 1 to n. One number from set {1, 2, …n} is missing and one number occurs twice in the array. Find these two numbers.
@@ -51,9 +51,33 @@ vi findMissingRepBe(vi a){
 }
 
 // $ Optimal Approach 1 [Maths [AP]]
-
+// $ TC: O(n) | SC: O(1)
 vi findMissingRepO1(vi a){
+    ll n = a.size();
     
+    ll Sn = (n * (n + 1))/2;
+    ll S2n = (n * (n + 1) * (2*n + 1))/6;
+
+    ll S = 0, S2 = 0;
+    for(int i = 0; i < n; i++){
+	S += a[i];
+    	S2 += (ll)a[i] * (ll)a[i];
+    }
+
+    ll val1 = S - Sn; // * x - y
+    ll val2 = S2 - S2n; // * x^2 - y^2
+    val2 = val2 / val1; // * x + y
+    ll x = (val1 + val2)/2;
+    ll y = x - val1;
+
+    return {(int)x, (int)y};
+}
+
+// $ Optimal Approach 2 [XOR]
+vi findMissingRepO2(vi a){
+    
+
+
 }
 
 
