@@ -54,7 +54,7 @@ vi findMissingRepBe(vi a){
 // $ TC: O(n) | SC: O(1)
 vi findMissingRepO1(vi a){
     ll n = a.size();
-    
+
     ll Sn = (n * (n + 1))/2;
     ll S2n = (n * (n + 1) * (2*n + 1))/6;
 
@@ -75,7 +75,7 @@ vi findMissingRepO1(vi a){
 
 // $ Optimal Approach 2 [XOR]
 vi findMissingRepO2(vi a){
-    
+// $ Test
 
 
 }
