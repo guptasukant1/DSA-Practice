@@ -5,6 +5,7 @@ using namespace std;
 // $ Inversion is a pair of indices i, j such that i < j and a[i] > a[j]
 
 // $ Brute Force
+// $ TC: O(N^2) | SC: O(1)
 int countInversions(vi a){
     int count = 0;
     for(int i = 0; i < a.size(); i++){
@@ -14,6 +15,10 @@ int countInversions(vi a){
     }
     return count;
 }
+
+// $ Optimal Approach[Merge Sort]
+
+
 
 int main(){
     vector<int> a = {5, 4, 3, 2, 1};
