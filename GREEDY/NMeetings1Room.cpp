@@ -52,6 +52,7 @@ struct meeting{
 //     print(ans);
 // }
 
+
 class Solution{
     public:
         bool static comparator(struct meeting m1, meeting m2){
@@ -67,12 +68,12 @@ class Solution{
                 meet[i].start = start[i], meet[i].end = end[i], meet[i].pos = i + 1;
             }
             sort(meet, meet + n, comparator);
-            
+
         }
 };
 
 
 
 int main(){
-    
+
 }
