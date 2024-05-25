@@ -53,9 +53,29 @@ int merge(vi a, int low, int mid, int high){
     return count;
 }
 
+int mergeSort(vector<int> &arr, int low, int high) {
+    int cnt = 0;
+    if (low >= high) return cnt;
+    int mid = (low + high) / 2 ;
+    cnt += mergeSort(arr, low, mid);  // left half
+    cnt += mergeSort(arr, mid + 1, high); // right half
+    cnt += merge(arr, low, mid, high);  // merging sorted halves
+    return cnt;
+}
+
+
+int numberOfInversions(vector<int>&a, int n) {
+
+    // Count the number of pairs:
+    return mergeSort(a, 0, n - 1);
+}
+
 int main(){
     vector<int> a = {5, 4, 3, 2, 1};
+    vector<int> a1 = {5, 4, 3, 2, 1};
+    int n = a1.size();
     int cnt = countInversions(a);
-    cout << "The number of inversions is: "
-         << cnt << endl;
+    cout << "The number of inversions is: " << cnt << endl;
+    int cnt1 = numberOfInversions(a1, n);
+    cout << "The number of inversions is: " << cnt1 << endl;
 }
