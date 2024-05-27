@@ -20,6 +20,7 @@ bool searchMat(vvi &matrix, int target){
 
 // $ Better Approach[Binary Search - selective search - check the row where the target may be and then apply binary search there]
 // $ TC: O(n + logm) | SC: O(1)
+// ! Fails for [[1]], as it is being considered via 2d index of the matrix
 bool BinarySearch(vi &nums, int target){
     int n = nums.size();
     int low = 0, high = n - 1;
@@ -42,7 +43,7 @@ bool searchMatBe(vvi &matrix, int target){
 }
 
 
-// $ Optimal Approach[Flattening the matrix - ]
+// $ Optimal Approach[Flattening the matrix - assume the 2d matrix is 1d and the indices of the 2d are to be mapped to the 1d array by taking the nos of cols value]
 // $ TC: O(log(n*m)) | SC: O(1)
 bool searchMatOA(vvi &matrix, int target){
     int n = matrix.size(), m = matrix[0].size();
