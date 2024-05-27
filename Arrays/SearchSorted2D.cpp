@@ -19,7 +19,7 @@ bool searchMat(vvi &matrix, int target){
 }
 
 // $ Better Approach[Binary Search - selective search - check the row where the target may be and then apply binary search there]
-// $ TC: O() | SC: O()
+// $ TC: O(n + logm) | SC: O(1)
 bool BinarySearch(vi &nums, int target){
     int n = nums.size();
     int low = 0, high = n - 1;
@@ -42,9 +42,26 @@ bool searchMatBe(vvi &matrix, int target){
 }
 
 
+// $ Optimal Approach[Flattening the matrix - ]
+
+bool searchMatOA(vvi &matrix, int target){
+    int n = matrix.size(), m = matrix[0].size();
+
+    int low = 0, high = n * m - 1;
+    while(low <= high){
+        int mid = low + (high - low)/2;
+        int row = mid / m, col = mid % m;
+        if(matrix[row][col] == target) return true;
+        else if(matrix[row][col] > target) high = mid - 1;
+        else low = mid + 1;
+    }
+    return false;
+}
+
+
 int main(){
     vvi matrix = {{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}};
     searchMat(matrix, 8) == true ? cout << "true\n" : cout << "false\n";
     searchMatBe(matrix, 13) == true ? cout << "true\n" : cout << "false\n";
-
+    searchMatOA(matrix, 1) == true ? cout << "true\n" : cout << "false\n";
 }
