@@ -43,7 +43,7 @@ bool searchMatBe(vvi &matrix, int target){
 
 
 // $ Optimal Approach[Flattening the matrix - ]
-
+// $ TC: O(log(n*m)) | SC: O(1)
 bool searchMatOA(vvi &matrix, int target){
     int n = matrix.size(), m = matrix[0].size();
 
