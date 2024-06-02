@@ -1,5 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
+#define ll long long
 
 // $ Implement pow(x, n) | x raised to the power n
 
@@ -21,14 +22,28 @@ double myPowBF(double x, int n){
 
 // $ Optimal Solution [Binary Exponentiation]
 // $ TC: O() | SC: O()
-double myPowOA1(double x, int n){
-    
+double myPowOA(double x, int n){
+    double ans = 1.0;
+    ll nn = n;
+    if(nn < 0) nn = -1 * nn;
+    while(nn){
+        if(nn % 2 == 1){ // * or (n % 2)
+            ans *= x;
+            nn = nn - 1;
+        }
+        else{
+            x *= x;
+            nn = nn / 2;
+        }
+    }
+    if(n < 0) ans = (double)(1.0) / (double)(ans);
+    return ans;
 }
-
-
 
 int main(){
     cout << myPow(5, 3) << endl;
-    cout << myPowBF(5, 3) << endl;
+    cout << myPowBF(4, 3) << endl;
+    cout << myPowOA(2, 6) << endl;
+    cout << myPowOA(4, 3) << endl;
     return 0;
 }
