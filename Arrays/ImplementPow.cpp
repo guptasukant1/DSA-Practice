@@ -15,7 +15,7 @@ double myPow(double x, int n) {
 // $ Brute-Force Approach [Loops]
 // $ TC: O(n) | SC: (1)
 double myPowBF(double x, int n){
-    double ans = 1.0;
+    double ans = 1.0;   
     for(int i = 0; i < n; i++) ans *= x;
     return ans;
 }
