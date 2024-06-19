@@ -21,6 +21,7 @@ int majorityElement(vi v){
 
 // $ Better Approach
 // $ TC: O(nlogn) + O(n) | SC: O(n)
+// $ We will use a map to store the frequency of each element. Iterate over the map and check if the frequency of any element is greater than n/2
 int majorityElementBe(vi v){
     int n = v.size();
     miip mpp;
