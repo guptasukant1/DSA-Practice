@@ -8,3 +8,4 @@ using namespace std;
 // $ Majority Element in an array is an element that appears more than n/3 times in the array
 
 // $ Brute-Force Approach
+
