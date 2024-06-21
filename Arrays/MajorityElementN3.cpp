@@ -43,6 +43,9 @@ vi majelemBe(vi v){
 }
 
 
+// $ Optimal Approach [Modified Moore's voting algo]
+// $ TC: O() | SC: O()
+
 int main(){
     vi arr = {11, 33, 33, 11, 33, 11};
     vi ans = majelem(arr);
