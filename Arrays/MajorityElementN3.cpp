@@ -26,14 +26,34 @@ vi majelem(vi v){
 }
 
 
-// 
+// $ Better Approach [Hash Maps]
+// $ TC: O() | SC: O()
+vi majelemBe(vi v){
+    int n = v.size();
+    vi ts;
+    miip mpp;
+    // * least occ of maj element
+    int mini = int(n / 3) + 1;
+    for(int i = 0; i < n; i++){
+        mpp[v[i]]++;
+        if(mpp[v[i]] == mini) ts.push_back(v[i]);
+        if(ts.size() == 2) break;
+    }
+    return ts;
+}
 
 
 int main(){
-    vector<int> arr = {11, 33, 33, 11, 33, 11};
-    vector<int> ans = majelem(arr);
+    vi arr = {11, 33, 33, 11, 33, 11};
+    vi ans = majelem(arr);
     cout << "The majority elements are: ";
     for (auto it : ans)
+        cout << it << " ";
+    cout << "\n";
+    vi arr1 = {10, 20, 40, 20, 40, 20};
+    vi ans1 = majelemBe(arr1);
+    cout << "The majority elements are: ";
+    for (auto it : ans1)
         cout << it << " ";
     cout << "\n";
     return 0;
