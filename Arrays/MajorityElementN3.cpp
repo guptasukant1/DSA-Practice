@@ -42,9 +42,12 @@ vi majelemBe(vi v){
     return ts;
 }
 
-
 // $ Optimal Approach [Modified Moore's voting algo]
 // $ TC: O() | SC: O()
+vi majelemOA(vi v){
+    
+}
+
 
 int main(){
     vi arr = {11, 33, 33, 11, 33, 11};
