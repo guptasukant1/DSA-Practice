@@ -46,6 +46,7 @@ vi majelemBe(vi v){
 // $ TC: O() | SC: O()
 vi majelemOA(vi v){
     int n = v.size();
+    // | There will be 2 majority elements at max for any size of the array.
     int cnt1 = 0, cnt2 = 0;
     int el1 = INT_MIN;
     int el2 = INT_MIN;
