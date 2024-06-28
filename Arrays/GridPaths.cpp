@@ -43,6 +43,6 @@ int main(){
     int totalCount= obj.uniquePaths(3,7);
     Solution o1;
     cout<<"The total number of Unique Paths are "<<totalCount<<endl;
-    int totalCount1= o1.uniquePathsBe(3,7);
+    int totalCount1= o1.uniquePathsBe(4,7);
     cout<<"The total number of Unique Paths are "<<totalCount1<<endl;
 }
