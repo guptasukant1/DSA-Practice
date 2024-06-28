@@ -8,7 +8,7 @@ using namespace std;
 class Solution{
 public:
     // $ Brute Force Approach
-    // $ TC: O() | SC: O()
+    // $ TC: O(2^(m + n)) | SC: O(m + n) [recursive stack depth]
     int count_paths(int i, int j, int n, int m){
         if(i == n - 1 and j == m - 1) return 1;
         if(i >= n || j >= n) return 0;
@@ -18,6 +18,8 @@ public:
         return count_paths(0, 0, n, m);
     }
 
+    // $ Better Approach
+    // $ TC: O() | SC: O()
 };
 
 int main(){
