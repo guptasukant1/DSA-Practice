@@ -6,17 +6,17 @@ using namespace std;
 
 
 class Solution{
-    public:
-        // $ Brute Force Approach
-        // $ TC: O() | SC: O()
-        int count_paths(int i, int j, int n, int m){
-            if(i == n - 1 and j == m - 1) return 1;
-            if(i >= n || j >= n) return 0;
-            else return count_paths(i + 1, j, n, m) + count_paths(i, j + 1, n, m);
-        }
-        int uniquePaths(int m, int n){
-            return count_paths(0, 0, n, m);
-        }
+public:
+    // $ Brute Force Approach
+    // $ TC: O() | SC: O()
+    int count_paths(int i, int j, int n, int m){
+        if(i == n - 1 and j == m - 1) return 1;
+        if(i >= n || j >= n) return 0;
+        else return count_paths(i + 1, j, n, m) + count_paths(i, j + 1, n, m);
+    }
+    int uniquePaths(int m, int n){
+        return count_paths(0, 0, n, m);
+    }
 
 };
 
