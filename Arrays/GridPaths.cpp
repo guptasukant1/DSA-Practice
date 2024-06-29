@@ -43,7 +43,7 @@ public:
     int uniquePathsOA(int n, int m){
         int N = n + m - 2;
         int r = m - 1; // * Can be n - 1 as well as they both help to reach the target.
-        int res = 1;
+        double res = 1;
 
         for(int i = 1; i <= r; i++) res = res * (N - r + i) / i;
         return (int)res;
@@ -58,7 +58,7 @@ int main(){
     int totalCount1= o1.uniquePathsBe(4,7);
     cout<<"The total number of Unique Paths are "<<totalCount1<<endl;
     Solution o2;
-    int totalCount2 = o1.uniquePathsOA(4,7);
+    int totalCount2 = o1.uniquePathsOA(51,9);
     cout<<"The total number of Unique Paths are "<< totalCount2 <<endl;
     
 }
