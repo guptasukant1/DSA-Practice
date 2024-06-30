@@ -17,13 +17,32 @@ class node{
     }
 };
 
+// $ Brute Force Approach [Stack]
+// $ TC: O() | SC: O()
+
 node* ReverseLL(node* head){
     node* temp = head;
     stack<int> st;
     while (temp != nullptr){
         st.push(temp->data);
+        temp = temp->next;
     }
-    
+    temp = head;
+    while(temp!= nullptr){
+        temp->data = st.top();
+        st.pop();
+        temp = temp->next;
+    }
+    return head;
+}
+
+void printLinkedList(node* head){
+    node* temp = head;
+    while (temp != nullptr) {
+        cout << temp->data << " ";
+        temp = temp->next;
+    }
+    cout << endl;
 }
 
 int main(){
