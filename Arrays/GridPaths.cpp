@@ -39,7 +39,7 @@ public:
     // $ Optimal Approach [Combinatorics]
     // $ TC: O() | SC: O()
     // | We have n + m - 2 paths for any case and the the paths can be found out by Combinations of n - 1 or m - 1 with n + m - 2
-    // | The loop will calculate the combination value.
+    // | The loop will calculate the combination value. 2 observations -> m + n - 2 steps and the specific directions to be put into each step.
     int uniquePathsOA(int n, int m){
         int N = n + m - 2;
         int r = m - 1; // * Can be n - 1 as well as they both help to reach the target.
