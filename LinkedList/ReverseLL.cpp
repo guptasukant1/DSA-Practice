@@ -4,14 +4,15 @@ using namespace std;
 // $ Reversing a Linked List
 
 class node{
+    public:
     int data;
     node* next;
-    node(int data1, node* next1){
-        data = data1;
-        next = next1;
+    node(int data, node* next){
+        this->data = data;
+        this->next = next;
     }
-    node(int data1){
-        data = data1;
+    node(int data){
+        this->data = data;
         next = nullptr;
     }
 };
@@ -36,7 +37,7 @@ int main(){
     printLinkedList(head);
 
     // Reverse the linked list
-    head = reverseLinkedList(head);
+    head = ReverseLL(head);
 
     // Print the reversed linked list
     cout << "Reversed Linked List: ";
