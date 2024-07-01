@@ -18,7 +18,7 @@ class node{
 };
 
 // $ Brute Force Approach [Stack]
-// $ TC: O() | SC: O()
+// $ TC: O(2n) | SC: O(n)
 
 node* ReverseLL(node* head){
     node* temp = head;
@@ -34,6 +34,13 @@ node* ReverseLL(node* head){
         temp = temp->next;
     }
     return head;
+}
+
+// $ Optimal Approach 1 [In-place reversal [Iterative]]
+// $ TC: O() | SC: O()
+
+node* ReverseLLOA1(node* head){
+    
 }
 
 void printLinkedList(node* head){
