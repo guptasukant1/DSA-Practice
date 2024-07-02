@@ -19,7 +19,6 @@ class node{
 
 // $ Brute Force Approach [Stack]
 // $ TC: O(2n) | SC: O(n)
-
 node* ReverseLL(node* head){
     node* temp = head;
     stack<int> st;
@@ -37,10 +36,17 @@ node* ReverseLL(node* head){
 }
 
 // $ Optimal Approach 1 [In-place reversal [Iterative]]
-// $ TC: O() | SC: O()
-
+// $ TC: O(n) | SC: O(1)
 node* ReverseLLOA1(node* head){
-    
+    node* temp = head;
+    node* prev = NULL;
+    while(temp != nullptr){
+        node* front = temp -> next;
+        temp -> next = prev;
+        prev = temp;
+        temp = front;
+    }
+    return prev;
 }
 
 void printLinkedList(node* head){
@@ -58,14 +64,23 @@ int main(){
     head->next->next = new node(2);
     head->next->next->next = new node(4);
 
-    // Print the original linked list
     cout << "Original Linked List: ";
     printLinkedList(head);
-
-    // Reverse the linked list
     head = ReverseLL(head);
-
-    // Print the reversed linked list
     cout << "Reversed Linked List: ";
     printLinkedList(head);
+
+    cout << "Original Linked List: ";
+    printLinkedList(head);
+    head = ReverseLLOA1(head);
+    cout << "Reversed Linked List: ";
+    printLinkedList(head);
+
+    cout << "Original Linked List: ";
+    printLinkedList(head);
+    head = ReverseLLOA1(head);
+    cout << "Reversed Linked List: ";
+    printLinkedList(head);
+
+    
 }
