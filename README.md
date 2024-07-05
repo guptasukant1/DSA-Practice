@@ -7,5 +7,5 @@
 ### LL
 ### Recursion
 ### Trees
-### 
+### Stacks & Queues
 ###
