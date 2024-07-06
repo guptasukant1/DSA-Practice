@@ -49,6 +49,19 @@ node* ReverseLLOA1(node* head){
     return prev;
 }
 
+// $ Optimal Approach 2 [Recursive Approach]
+// $ TC: O(n) | SC: O(1)
+// | Takes the LL, calls rec fn, takes ll - head list, goes on till reach 1 node, return node and use a ptr to reverse the list.
+node* ReverseLLOA2(node* head){
+    if(head == nullptr || head -> next == nullptr) return head;
+    node* newHead = ReverseLLOA2(head -> next);
+    node* front = head -> next;
+    front -> next = head;
+    head -> next = nullptr;
+    return newHead;
+}
+
+
 void printLinkedList(node* head){
     node* temp = head;
     while (temp != nullptr) {
@@ -78,7 +91,7 @@ int main(){
 
     cout << "Original Linked List: ";
     printLinkedList(head);
-    head = ReverseLLOA1(head);
+    head = ReverseLLOA2(head);
     cout << "Reversed Linked List: ";
     printLinkedList(head);
 
