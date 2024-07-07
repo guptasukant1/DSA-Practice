@@ -36,7 +36,7 @@ node* ReverseLL(node* head){
 }
 
 // $ Optimal Approach 1 [In-place reversal [Iterative]]
-// $ TC: O(n) | SC: O(1)
+// $ TC: O(n) | SC: O(1) [Faster than the recursive approach as In place]
 node* ReverseLLOA1(node* head){
     node* temp = head;
     node* prev = NULL;
