@@ -93,7 +93,5 @@ int main(){
     printLinkedList(head);
     head = ReverseLLOA2(head);
     cout << "Reversed Linked List: ";
-    printLinkedList(head);
-
-    
+    printLinkedList(head);   
 }
