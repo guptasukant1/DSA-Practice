@@ -18,7 +18,30 @@ class Node {
 };
 
 
+// $ Brute Force Approach
+// $ TC: O(n + n / 2) | SC: O(1)
+Node* findMiddle(Node* head){
+    if(head == nullptr || head -> next == nullptr) return head;
+    Node* temp = head;
+    int count = 0;
 
+    while(temp != nullptr){
+        count++;
+        temp = temp -> next;
+    }
+    int mid = (count / 2) + 1;
+    temp = head;
+
+    while(temp != nullptr){
+        mid--;
+        if(mid == 0) break;
+
+        temp = temp -> next;
+    }
+    return temp;
+}
+
+// $ 
 
 
 int main(){
@@ -27,6 +50,7 @@ int main(){
     head->next->next = new Node(3);
     head->next->next->next = new Node(4);
     head->next->next->next->next = new Node(5);
+    head->next->next->next->next->next = new Node(5);
 
     // Find the middle node
     Node* middleNode = findMiddle(head);
