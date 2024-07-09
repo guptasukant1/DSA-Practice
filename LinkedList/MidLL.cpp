@@ -41,7 +41,8 @@ Node* findMiddle(Node* head){
     return temp;
 }
 
-// $ 
+// $ Optimal Approach
+// $ TC: O() | SC: O()
 
 
 int main(){
