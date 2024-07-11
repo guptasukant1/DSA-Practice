@@ -41,8 +41,17 @@ Node* findMiddle(Node* head){
     return temp;
 }
 
-// $ Optimal Approach
+// $ Optimal Approach [Tortoise and Hare Algo]
 // $ TC: O() | SC: O()
+Node* findMiddleOA(Node* head){
+    Node* slow = head;
+    Node* fast = head;
+    while(fast != nullptr && fast -> next != nullptr){
+        slow = slow -> next;
+        fast = fast -> next -> next;
+    }
+    return slow;
+}
 
 
 int main(){
@@ -53,11 +62,8 @@ int main(){
     head->next->next->next->next = new Node(5);
     head->next->next->next->next->next = new Node(5);
 
-    // Find the middle node
     Node* middleNode = findMiddle(head);
-
-    // Display the value of the middle node
     cout << "The middle node value is: " << middleNode->data << endl;
-
-    return 0;
+    Node* middleNode1 = findMiddleOA(head);
+    cout << "The middle node value is: " << middleNode1->data << endl;
 }
