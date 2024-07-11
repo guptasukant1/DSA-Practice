@@ -42,7 +42,7 @@ Node* findMiddle(Node* head){
 }
 
 // $ Optimal Approach [Tortoise and Hare Algo]
-// $ TC: O() | SC: O()
+// $ TC: O(n / 2) | SC: O(1)
 Node* findMiddleOA(Node* head){
     Node* slow = head;
     Node* fast = head;
