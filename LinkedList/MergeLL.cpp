@@ -19,4 +19,11 @@ class Node {
 
 // $ Brute Force Approach
 // $ TC: O() | SC: O()
-Node* mergeLL()[]
+Node* mergeLL(Node* head){
+
+}
+
+
+int main(){
+
+}
