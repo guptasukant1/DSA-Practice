@@ -53,7 +53,6 @@ Node* findMiddleOA(Node* head){
     return slow;
 }
 
-
 int main(){
     Node* head = new Node(1);
     head->next = new Node(2);
