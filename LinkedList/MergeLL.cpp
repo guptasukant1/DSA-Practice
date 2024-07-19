@@ -19,7 +19,7 @@ class Node {
 };
 
 // $ Brute Force Approach
-// $ TC: O() | SC: O()
+// $ TC: O(n1 + n2 + nlog(n) + n) | SC: O(n + n)
 Node* ConvertALL(vi &arr){
     Node* dum = new Node(-1);
     Node* temp = dum;
@@ -48,6 +48,8 @@ Node* SortLL(Node* list1, Node* list2){
     Node* head = ConvertALL(arr);
     return head;
 }
+
+
 
 
 void printLinkedList(Node* head) {
