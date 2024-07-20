@@ -50,14 +50,31 @@ Node* SortLL(Node* list1, Node* list2){
 }
 
 
+Node* SortLLOA(Node* list1, Node* list2){
+    Node* dum = new Node(-1);
+    Node* temp = dum;
 
+    while(list1 != nullptr && list2 != nullptr){
+        if(list1 -> data <= list2 -> data){
+            temp -> next = list1;
+            list1 = list1 -> next;
+        }
+        else{
+            temp -> next = list2;
+            list2 = list2 -> next;
+        }
+        temp = temp -> next;
+    }
+    if(list1 != nullptr) temp -> next = list1;
+    else temp -> next = list2;
+
+    return dum -> next;
+}
 
 void printLinkedList(Node* head) {
     Node* temp = head;
     while (temp != nullptr) {
-        // Print the data of the current node
         cout << temp->data << " "; 
-        // Move to the next node
         temp = temp->next; 
     }
     cout << endl;
@@ -83,6 +100,11 @@ int main() {
 
     cout << "Merged sorted linked list: ";
     printLinkedList(mergedList);
+
+    Node* mergedList1 = SortLLOA(list1, list2);
+
+    cout << "Merged sorted linked list: ";
+    printLinkedList(mergedList1);
 
     return 0;
 }
