@@ -19,6 +19,9 @@ public:
     }
 };
 
+
+// $ Brute Force Approach
+// $ TC: O(l + (l - n)) | SC: O(1)
 Node* deleteNode(Node* head, int n){
     if(head == nullptr) return nullptr;
     int count = 0;
