@@ -49,7 +49,8 @@ Node* SortLL(Node* list1, Node* list2){
     return head;
 }
 
-
+// $ Optimal Approach
+// $ TC: O(n1 + n2) | SC: O(1)
 Node* SortLLOA(Node* list1, Node* list2){
     Node* dum = new Node(-1);
     Node* temp = dum;
