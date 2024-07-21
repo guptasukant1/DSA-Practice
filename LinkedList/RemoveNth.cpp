@@ -19,7 +19,6 @@ public:
     }
 };
 
-
 // $ Brute Force Approach
 // $ TC: O(l + (l - n)) | SC: O(1)
 Node* deleteNode(Node* head, int n){
@@ -53,8 +52,25 @@ Node* deleteNode(Node* head, int n){
     return head;
 }
 
+// $ Optimal Approach
+// $ TC: O(n) | SC: O(1)
+Node* deleteNodeOA(Node* head, int N){
+    Node* fast = head;
+    Node* slow = head;
 
-// Function to print the linked list
+    for(int i = 0; i < N; i++) fast = fast -> next;
+    if(fast == nullptr) return head -> next;
+
+    while(fast -> next != nullptr){
+        fast = fast -> next;
+        slow = slow -> next;
+    }
+    Node* delN = slow -> next;
+    slow -> next = delN -> next;
+    delete(delN);
+    return head;
+}
+
 void printLL(Node* head) {
     while (head != NULL) {
         cout << head->data << " ";
@@ -71,8 +87,9 @@ int main() {
     head->next->next->next = new Node(arr[3]);
     head->next->next->next->next = new Node(arr[4]);
 
-    // Delete the Nth node from the end
-    // and print the modified linked list
     head = deleteNode(head, N);
+    printLL(head);
+    cout << endl;
+    head = deleteNodeOA(head, N);
     printLL(head);
 }
