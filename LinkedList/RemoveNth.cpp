@@ -65,6 +65,7 @@ Node* deleteNodeOA(Node* head, int N){
         fast = fast -> next;
         slow = slow -> next;
     }
+    
     Node* delN = slow -> next;
     slow -> next = delN -> next;
     delete(delN);
