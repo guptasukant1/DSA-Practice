@@ -2,6 +2,8 @@
 using namespace std;
 
 // $ Delete a node from LL without head reference
+// | Take the node to be deleted and access its RHS. We first need to get the node using the head of the LL.
+// | and then delete the node by copying the value of the next node to the current node, and breaking the link b/w the 2 and pushing the link to next node. 
 
 class node {
 public:
