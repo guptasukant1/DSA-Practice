@@ -23,8 +23,12 @@ string reverseSBF(string s){
         st.pop();
     }
     ans += st.top();
+    st.pop();
     return ans;
 }
+
+// $ Oprimal Approach
+// $ TC: O() | SC: O()
 
 int main(){
     string s = "TUF is great for interview preparation";
