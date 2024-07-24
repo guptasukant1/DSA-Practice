@@ -17,7 +17,7 @@ string reverseSBF(string s){
         }
         else str += s[i];
     }
-    string ans ="";
+    string ans = "";
     while(st.size() != 1){
         ans += st.top() + " ";
         st.pop();
