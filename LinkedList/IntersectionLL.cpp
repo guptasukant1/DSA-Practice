@@ -25,8 +25,8 @@ void insertNode(node* &head,int val) {
     return;
 }
 
-// $ Brute Force Approach
-// $ TC: O() | SC: O()
+// $ Brute Force Approach [compares each element of both lists]
+// $ TC: O(m*n) | SC: O(1)
 node* IntersectionBF(node* head1, node* head2){
     while(head2 != nullptr){
         node* temp = head1;
@@ -39,6 +39,8 @@ node* IntersectionBF(node* head1, node* head2){
     return nullptr;
 }
 
+// $ Hashing Approach
+// $ TC: O() | SC: O()
 
 void printList(node* head) {
     while(head->next != NULL) {
