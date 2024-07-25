@@ -41,6 +41,18 @@ node* IntersectionBF(node* head1, node* head2){
 
 // $ Hashing Approach
 // $ TC: O() | SC: O()
+node* IntersectionHA(node* head1, node* head2){
+    unordered_set<node*> uset;
+    while(head1 != nullptr){
+        uset.insert(head1);
+        head1 = head1 -> next;
+    }
+    while(head2 != nullptr){
+        if(uset.find(head2) != uset.end()) return head2;
+        head2 = head2 -> next;
+    }
+    return nullptr;
+}
 
 void printList(node* head) {
     while(head->next != NULL) {
@@ -72,4 +84,11 @@ int main() {
     cout<<"No intersection\n";
     else
     cout<<"The intersection point is "<<answerNode->data<<endl;
+
+    node* answerNode1 = IntersectionHA(head1,head2);
+    if(answerNode1 == NULL )
+    cout<<"No intersection\n";
+    else
+    cout<<"The intersection point is "<<answerNode1->data<<endl;
+
 }
