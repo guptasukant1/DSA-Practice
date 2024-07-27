@@ -54,7 +54,7 @@ node* IntersectionHA(node* head1, node* head2){
     return nullptr;
 }
 
-// $ Better Approach [Length Difference]
+// $ Optimal Approach 1 [Length Difference]
 // $ TC: O() | SC: O()
 int getDiff(node* head1, node* head2){
     int len1 = 0, len2 = 0;
@@ -71,9 +71,16 @@ int getDiff(node* head1, node* head2){
     return len1 - len2;
 }
 
-node* IntersectionBeA(node* head1, node* head2){
+node* IntersectionOA(node* head1, node* head2){
     int diff = getDiff(head1, head2);
-    
+    if(diff < 0) while(diff++ != 0) head2 = head2 -> next;
+    else while(diff-- != 0) head1 = head1 -> next;
+    while(head1){
+        if(head1 == head2) return head1;
+        head2 = head2 -> next;
+        head1 = head1 -> next;
+    }
+    return head1;
 }
 
 void printList(node* head) {
@@ -101,16 +108,21 @@ int main() {
     cout<<"List1: "; printList(head1);
     cout<<"List2: "; printList(head2);
 
-    node* answerNode = IntersectionBF(head1,head2);
+    node* answerNode = IntersectionBF(head1, head2);
     if(answerNode == NULL )
     cout<<"No intersection\n";
     else
     cout<<"The intersection point is "<<answerNode->data<<endl;
 
-    node* answerNode1 = IntersectionHA(head1,head2);
+    node* answerNode1 = IntersectionHA(head1, head2);
     if(answerNode1 == NULL)
     cout<<"No intersection\n";
     else
     cout<<"The intersection point is "<<answerNode1->data<<endl;
-
+    
+    node* answerNode2 = IntersectionOA(head1, head2);
+    if(answerNode2 == NULL)
+    cout<<"No intersection\n";
+    else
+    cout<<"The intersection point is "<<answerNode2->data<<endl;
 }
