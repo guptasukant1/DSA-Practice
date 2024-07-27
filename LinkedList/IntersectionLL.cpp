@@ -2,6 +2,7 @@
 using namespace std;
 
 // $ Find the intersection of 2 LL
+// | Intersection point is the same node in both the lists. It is not by value but by reference.
 
 class node {
 public:
@@ -71,7 +72,7 @@ int getDiff(node* head1, node* head2){
     return len1 - len2;
 }
 
-node* IntersectionOA(node* head1, node* head2){
+node* IntersectionOA1(node* head1, node* head2){
     int diff = getDiff(head1, head2);
     if(diff < 0) while(diff++ != 0) head2 = head2 -> next;
     else while(diff-- != 0) head1 = head1 -> next;
@@ -81,6 +82,18 @@ node* IntersectionOA(node* head1, node* head2){
         head1 = head1 -> next;
     }
     return head1;
+}
+
+// $ Optimal Approach 2 [Similar to 1 but less steps and interchanging of dummy initial heads]
+// $ TC: O() | SC: O()
+node* IntersectionOA2(node* head1, node* head2){
+    node* d1 = head1;
+    node* d2 = head2;
+    while(d1 != d2){
+        d1 = d1 == nullptr ? head2 : d1 -> next;
+        d2 = d2 == nullptr ? head1 : d2 -> next;
+    }
+    return d1;
 }
 
 void printList(node* head) {
@@ -120,9 +133,16 @@ int main() {
     else
     cout<<"The intersection point is "<<answerNode1->data<<endl;
     
-    node* answerNode2 = IntersectionOA(head1, head2);
+    node* answerNode2 = IntersectionOA1(head1, head2);
     if(answerNode2 == NULL)
     cout<<"No intersection\n";
     else
     cout<<"The intersection point is "<<answerNode2->data<<endl;
+
+    node* answerNode3 = IntersectionOA2(head1, head2);
+    if(answerNode3 == NULL)
+    cout<<"No intersection\n";
+    else
+    cout<<"The intersection point is "<<answerNode3->data<<endl;
+
 }
