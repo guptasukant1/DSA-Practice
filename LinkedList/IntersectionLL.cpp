@@ -40,7 +40,7 @@ node* IntersectionBF(node* head1, node* head2){
 }
 
 // $ Hashing Approach
-// $ TC: O() | SC: O()
+// $ TC: O(n + m) | SC: O(n)
 node* IntersectionHA(node* head1, node* head2){
     unordered_set<node*> uset;
     while(head1 != nullptr){
@@ -52,6 +52,28 @@ node* IntersectionHA(node* head1, node* head2){
         head2 = head2 -> next;
     }
     return nullptr;
+}
+
+// $ Better Approach [Length Difference]
+// $ TC: O() | SC: O()
+int getDiff(node* head1, node* head2){
+    int len1 = 0, len2 = 0;
+    while(head1 || head2){
+        if(head1){
+            len1++;
+            head1 = head1 -> next;
+        }
+        if(head2){
+            len2++;
+            head2 = head2 -> next;
+        }
+    }
+    return len1 - len2;
+}
+
+node* IntersectionBeA(node* head1, node* head2){
+    int diff = getDiff(head1, head2);
+    
 }
 
 void printList(node* head) {
@@ -86,7 +108,7 @@ int main() {
     cout<<"The intersection point is "<<answerNode->data<<endl;
 
     node* answerNode1 = IntersectionHA(head1,head2);
-    if(answerNode1 == NULL )
+    if(answerNode1 == NULL)
     cout<<"No intersection\n";
     else
     cout<<"The intersection point is "<<answerNode1->data<<endl;
