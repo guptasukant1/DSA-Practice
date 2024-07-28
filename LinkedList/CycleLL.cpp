@@ -32,7 +32,18 @@ bool detectLoop(Node* head){
 
 // $ Optimal Approach [Tortoise and Hare] -> []
 // $ TC: O() | SC: O()
+bool detectLoopOA(Node* head){
+    Node* slow = head;
+    Node* fast = head;
 
+    while(fast != nullptr && fast -> next != nullptr){
+        slow = slow -> next;
+        fast = fast -> next -> next;
+
+        if(slow == fast) return true;
+    }
+    return false;
+}
 
 
 int main() {
@@ -49,6 +60,12 @@ int main() {
     fifth->next = third; 
 
     if (detectLoop(head)) {
+        cout << "Loop detected in the linked list." << endl;
+    } else {
+        cout << "No loop detected in the linked list." << endl;
+    }
+
+    if (detectLoopOA(head)) {
         cout << "Loop detected in the linked list." << endl;
     } else {
         cout << "No loop detected in the linked list." << endl;
