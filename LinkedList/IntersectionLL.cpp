@@ -144,5 +144,4 @@ int main() {
     cout<<"No intersection\n";
     else
     cout<<"The intersection point is "<<answerNode3->data<<endl;
-
 }
