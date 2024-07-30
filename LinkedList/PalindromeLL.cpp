@@ -36,7 +36,7 @@ bool isPalindrome(Node* head){
 }
 
 // $ Optimal Approach [Split LL and Reverse the parts with 2 heads and compare the values of both the lists] [Tortoise and Hare for mid element]
-// $ TC: O() | SC: O()
+// $ TC: O(2 * n) | SC: O(1)
 Node* reverseLL(Node* head){
     if(head == nullptr || head -> next == nullptr) return head;
     Node* newHead = reverseLL(head -> next);
