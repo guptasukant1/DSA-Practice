@@ -17,20 +17,39 @@ public:
     }
 };
 
-// $ Brute Force Approach
-// $ TC: O() | SC: O()
+// $ Brute Force Approach [Unordered Map -> add entry to the map and check for reps, if found, loop exists at rep node]
+// $ TC: O(n) | SC: O(n)
 Node* detectLoop(Node* head){
     Node* temp = head;
     unordered_map<Node*, int> NodeMap;
-
     while(temp != nullptr){
-        if(NodeMap.count(temp) != 0) return temp;
-        NodeMap[temp] = 1;
-        temp = temp -> next;
+        if(NodeMap.count(temp) != 0) return temp; // * Checks if the node exists in map or not
+        NodeMap[temp] = 1; // * Add entry and val to map
+        temp = temp -> next; 
     }  
     return nullptr;
 }
 
+// $ Optimal Approach [T&H algo -> find meeting point and reset the slow and move both by one till meet]
+// $ TC: O(n) | SC: O(1)
+Node* detectLoopOA(Node* head){
+    Node* slow = head;
+    Node* fast = head;
+
+    while(fast != nullptr && fast -> next != nullptr){
+        slow = slow -> next;
+        fast = fast -> next -> next;
+        if(slow == fast){
+            slow = head;
+            while(slow != fast){
+                slow = slow -> next;
+                fast = fast -> next;
+            }
+            return slow;
+        }
+    }
+    return nullptr;
+}
 
 int main() {
     Node* node1 = new Node(1);
@@ -51,6 +70,14 @@ int main() {
 
     if (loopStartNode) {
         cout << "Loop detected. Starting node of the loop is: " << loopStartNode->data << endl;
+    } else {
+        cout << "No loop detected in the linked list." << endl;
+    }
+    
+    Node* loopStartNode1 = detectLoopOA(head);
+
+    if (loopStartNode1) {
+        cout << "Loop detected. Starting node of the loop is: " << loopStartNode1->data << endl;
     } else {
         cout << "No loop detected in the linked list." << endl;
     }
