@@ -16,6 +16,8 @@ public:
 };
 
 
+// $ Brute Force Approach
+// $ TC: O[ (n * m) + (n * m * log(n * m)) + (n * m) ] | SC: O[ (n * m) + (n * m) ]
 Node* convertArrToLL(vi &larr){
     Node* dum = new Node(-1);
     Node* temp = dum;
@@ -42,9 +44,38 @@ Node* flattenBF(Node* head){
     return convertArrToLL(larr);
 }
 
+// $ Optimal Approach
+// $ TC: O(2 * n * m) | SC: O(1)
+Node* mergeLL(Node* list1, Node* list2){
+    Node* dum = new Node(-1);
+    Node* temp = dum;
 
+    while(list1 != nullptr && list2 != nullptr){
+        if(list1 -> data < list2 -> data){
+            temp -> child = list1;
+            temp = list1;
+            list1 = list1 -> child;
+        }
+        else{
+            temp -> child = list2;
+            temp = list2;
+            list2 = list2 -> child;
+        }
+        temp -> next = nullptr;
+    }
+    if(list1) temp -> child = list1;
+    else temp -> child = list2;
 
+    if(dum -> child) dum -> child -> next = nullptr;
+    return dum -> child;
+}
 
+Node* flattenOA(Node* head){
+    if(head == nullptr || head -> next == nullptr) return head;
+    Node* mergeHead = flattenOA(head -> next);
+    head = mergeLL(head, mergeHead);
+    return head;
+}
 
 void printLinkedList(Node* head) {
     while (head != nullptr) {
@@ -93,5 +124,7 @@ int main() {
     cout << "\nFlattened linked list: ";
     printLinkedList(flattened);
 
-    return 0;
+    // Node* flattened = flattenOA(head);
+    // cout << "\nFlattened linked list: ";
+    // printLinkedList(flattened);
 }
