@@ -14,9 +14,9 @@ public:
     Node(int x, Node *nextNode, Node *randomNode) : data(x), next(nextNode), random(randomNode) {}  
 };
 
-
-
-Node* cloneLL(Node* head){
+// $ Brute Force Approach [Use map to store each node as the key:value -> access each value and set the next and random from the key's next and random]
+// $ TC: O(2n) | SC: O(n + n)
+Node* cloneLLBF(Node* head){
     Node* temp = head;
     unordered_map<Node*, Node*> mpp;
 
@@ -36,6 +36,11 @@ Node* cloneLL(Node* head){
     return mpp[head];
 }
 
+// $ Optimal Approach
+// $ TC: O() | SC: O()
+Node* cloneLLOA(Node* head){
+    
+}
 
 void printClonedLinkedList(Node *head) {
     while (head != nullptr) {
@@ -64,7 +69,7 @@ int main() {
     cout << "Original Linked List with Random Pointers:" << endl;
     printClonedLinkedList(head);
 
-    Node* clonedList = cloneLL(head);
+    Node* clonedList = cloneLLBF(head);
 
     cout << "\nCloned Linked List with Random Pointers:" << endl;
     printClonedLinkedList(clonedList);
