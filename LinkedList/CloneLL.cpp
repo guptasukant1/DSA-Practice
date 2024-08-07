@@ -36,10 +36,50 @@ Node* cloneLLBF(Node* head){
     return mpp[head];
 }
 
-// $ Optimal Approach
+// $ Optimal Approach [create copy of nodes and insert between nodes -> set random and next pointers -> get the copied ll and reset next o original ll]
 // $ TC: O() | SC: O()
+
+void insertCopyInBetween(Node* head){
+    Node* temp = head;
+    while(temp != nullptr){
+        Node* nextEl = temp -> next;
+        Node* copyNode = new Node(temp -> data);
+        copyNode -> next = nextEl;
+        temp -> next = copyNode;
+        temp = nextEl;
+    }
+}
+
+void connectRandom(Node* head){
+    Node* temp = head;
+    while(temp != nullptr){
+        Node* copyNode = temp -> next;
+        if(temp -> random) copyNode -> random = temp -> random -> next; // * access the original node -> random to get the copied node
+        else copyNode -> random = nullptr;
+        temp = temp -> next -> next;
+    }
+}
+
+Node* deepCopy(Node* head){
+    Node* temp = head;
+    Node* dum = new Node(-1);
+    Node* res = dum;
+
+    while(temp != nullptr){
+        res -> next = temp -> next;
+        res = res -> next;
+        temp -> next = temp -> next -> next;
+        temp = temp -> next;
+    }
+    return dum -> next;
+}
+
+
 Node* cloneLLOA(Node* head){
-    
+    if(!head) return nullptr;
+    insertCopyInBetween(head); // * To insert the copy of each node in between 2 nodes
+    connectRandom(head); // * Connect the random of the copied nodes
+    return deepCopy(head); // * Get the copied LL
 }
 
 void printClonedLinkedList(Node *head) {
@@ -69,10 +109,12 @@ int main() {
     cout << "Original Linked List with Random Pointers:" << endl;
     printClonedLinkedList(head);
 
-    Node* clonedList = cloneLLBF(head);
+    // Node* clonedList = cloneLLBF(head);
+
+    // cout << "\nCloned Linked List with Random Pointers:" << endl;
+    // printClonedLinkedList(clonedList);
+
+    Node* clonedList = cloneLLOA(head);
 
     cout << "\nCloned Linked List with Random Pointers:" << endl;
-    printClonedLinkedList(clonedList);
-
-    return 0;
-}
+    printClonedLinkedList(clonedList);}
