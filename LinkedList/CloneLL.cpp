@@ -37,7 +37,7 @@ Node* cloneLLBF(Node* head){
 }
 
 // $ Optimal Approach [create copy of nodes and insert between nodes -> set random and next pointers -> get the copied ll and reset next o original ll]
-// $ TC: O() | SC: O()
+// $ TC: O(3n) | SC: O(n)
 
 void insertCopyInBetween(Node* head){
     Node* temp = head;
@@ -73,7 +73,6 @@ Node* deepCopy(Node* head){
     }
     return dum -> next;
 }
-
 
 Node* cloneLLOA(Node* head){
     if(!head) return nullptr;
