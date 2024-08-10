@@ -4,7 +4,7 @@ using namespace std;
 #define svi set<vector<int>>
 #define vi vector<int>
 
-// $ Triplets adding up to zero
+// $ Triplets adding up to zero [3 sum]
 
 // $ Brute Force Approach
 // $ TC: O(n^3 * log(no. of unique triplets)) | SC: O(2 * no. of unique triplets)
@@ -49,18 +49,22 @@ vvi tripletBeA(int n, vi &arr){
 }
 
 // $ Optimal Approach
-// $ TC: O() | SC: O()
+// $ TC: O(n * logn + n^2) | SC: O(1)
 vvi tripletOA(int n, vi &arr){
     vvi ans;
     sort(arr.begin(), arr.end());
     for(int i = 0; i < n; i++){
+
         if(i != 0 && arr[i - 1] == arr[i]) continue;
         int j = i + 1;
         int k = n - 1;
+
         while(j < k){
             int sum = arr[i] + arr[j] + arr[k];
+
             if(sum > 0) k--;
             else if(sum < 0) j++;
+            
             else {
                 vi temp = {arr[i], arr[j], arr[k]};
                 ans.push_back(temp);
