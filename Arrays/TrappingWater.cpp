@@ -27,7 +27,7 @@ int trap(vi &arr){
 }
 
 // $ Better Approach [using prefix and suffix array to find the max left and right at each index and reduce tc by calculating them individually]
-// $ TC: O() | SC: O()
+// $ TC: O(3 * n) | SC: O(2 * n)
 int trapBeA(vi &arr){
     int n = arr.size();
     int prefix[n], suffix[n];
@@ -41,7 +41,6 @@ int trapBeA(vi &arr){
     for(int i = 0; i < n; i++) water += min(prefix[i], suffix[i]) - arr[i];
     return water;
 }
-
 
 // $ Optimal Approach [2 pointer approach -> set ptrs at ends, finding left and right max to to find whether water is trapped at the left or right end and adding to res]
 // $ [and avoiding separate calc of max left and right at each index]
@@ -64,7 +63,6 @@ int trapOA(vi &arr){
     }
     return res;
 }
-
 
 int main() {
     vi arr;

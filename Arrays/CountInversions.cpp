@@ -17,7 +17,7 @@ int countInversions(vi a){
 }
 
 // $ Optimal Approach[Merge Sort]
-
+// $ TC: O() | SC: O()
 int merge(vi a, int low, int mid, int high){
     vi temp;
     int left = low;
@@ -63,10 +63,7 @@ int mergeSort(vector<int> &arr, int low, int high) {
     return cnt;
 }
 
-
 int numberOfInversions(vector<int>&a, int n) {
-
-    // Count the number of pairs:
     return mergeSort(a, 0, n - 1);
 }
 
