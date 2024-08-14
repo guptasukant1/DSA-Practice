@@ -3,8 +3,7 @@ using namespace std;
 #define vi vector<int>
 
 // $ Find maximum consecutive 1s
-
-
+// $ TC: O(n) | SC: O(1)
 class Solution{
 public:
     int findMaxConsecutiveOnes(vi &nums){
@@ -17,8 +16,6 @@ public:
         return maxi;
     }
 };
-
-
 
 int main() {
     vector < int > nums = { 1, 1, 0, 1, 1, 1 };
