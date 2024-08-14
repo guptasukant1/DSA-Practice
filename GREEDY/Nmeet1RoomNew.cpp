@@ -2,7 +2,8 @@
 using namespace std;
 #define vi vector<int>
 
-// $ N meetings 1 Room
+// $ N meetings 1 Room [Use a struct of s, e, pos -> create array of struct and map the values from s, e, n then use comparator w.r.t the end times]
+// $ [and select the meeting with > start time of meet than the previous end]
 // $ TC: O(n + nlogn + n) | SC: O(n )
 struct meeting{
     int start, end, pos;
