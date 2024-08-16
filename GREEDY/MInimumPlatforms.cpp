@@ -38,7 +38,6 @@ int countPlatformsOA(int n, int arr[], int dep[]){
     return ans;
 }
 
-
 int main(){
     int arr[]={900,945,955,1100,1500,1800};
     int dep[]={920,1200,1130,1150,1900,2000};
