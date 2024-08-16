@@ -19,7 +19,7 @@ int countPlatforms(int n, int arr[], int dep[]){
 }
 
 // $ Optimal Approach [2 ptr to check whether the arr of current is less than prev dep or not -> inc count and i if true else reduce count and inc j]
-// $ TC: O() | SC: O()
+// $ TC: O(2n + 2*nlogn) | SC: O(1)
 int countPlatformsOA(int n, int arr[], int dep[]){
     sort(arr, arr + n);
     sort(dep, dep + n);
