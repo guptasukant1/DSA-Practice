@@ -8,8 +8,9 @@ struct Job{
     int id, dead, profit;
 };
 
-// $ Optimal Approach []
-// $ TC: O() | SC: O()
+// $ Optimal Approach [sort the arr by max profit and select the max deadline to create temp arr -> use it to iterate over all the jobs and setting the]
+// $ [max profit job at max deadline so that remaining jobs can be set at lower deadlines.]
+// $ TC: O(n*logn + n*m) | SC: O(m)
 class Solution{
 public:
     bool static comparison(Job a, Job b){
@@ -44,10 +45,6 @@ int main() {
     Job arr[n] = {{1,4,20},{2,1,10},{3,2,40},{4,2,30}};
 
     Solution ob;
-    //function call
     pair < int, int > ans = ob.JobScheduling(arr, n);
     cout << ans.first << " " << ans.second << endl;
-} 
-
-
-
+}
