@@ -54,9 +54,7 @@ pair<int, int> diameterFast(node* root){
         return p;
     }
 
-    // $ pair of left subtree
     pair<int, int> left = diameterFast(root->left);
-    // $ pair of right subtree
     pair<int, int> right = diameterFast(root->right);
 
     // $ Diameter of left subtree
@@ -203,9 +201,9 @@ bool isSumTree(node* root){
 }
 
 // $ Spiral Traversal of a tree
-// todo | Here, the tree needs to be printed in a spiral order.
-// todo | All the nodes present at a level are to be printed in one direction.
-// todo | The nodes for the next level are printed in the opposite direction.
+// | Here, the tree needs to be printed in a spiral order.
+// | All the nodes present at a level are to be printed in one direction.
+// | The nodes for the next level are printed in the opposite direction.
 
 // $ TC: O(n)
 // $ SC: O(n)
@@ -614,9 +612,9 @@ int kthAncestor(node* root, int k, int node){
 
 
 // $ Maximum sum of non adjacent nodes
-// todo | To find the maximum sum we can either inlude the elements of a level or exclude the elements of a level
-// todo | If we include the elements of a level, then we cannot include the elements of the next level
-// todo | We can use a pair to store the maximum sum of including and excluding the elements of a level
+// | To find the maximum sum we can either inlude the elements of a level or exclude the elements of a level
+// | If we include the elements of a level, then we cannot include the elements of the next level
+// | We can use a pair to store the maximum sum of including and excluding the elements of a level
 pair<int, int> solveMaxSum(node *root){
     if(root == NULL){
         pi p = make_pair(0, 0);

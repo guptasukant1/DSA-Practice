@@ -219,8 +219,8 @@ int minTime(node *root, int target)
 
 
 // $ Morris Traversal
-// todo | Morris Traversal is used to traverse the tree without using any extra space.
-// todo | The idea is to use the right pointer of the predecessor to store the current node.
+// | Morris Traversal is used to traverse the tree without using any extra space.
+// | The idea is to use the right pointer of the predecessor to store the current node.
 
 
 int main(){
