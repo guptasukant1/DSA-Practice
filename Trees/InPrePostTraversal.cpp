@@ -2,8 +2,6 @@
 using namespace std;
 #define vi vector<int>
 
-// $ Inorder Traversal
-// $ TC: O(n) | SC: O(n)
 struct Node{
     int data;
     Node* right;
@@ -12,6 +10,8 @@ struct Node{
     Node(int val) : data(val), right(nullptr), left(nullptr) {}
 };
 
+// $ Inorder Traversal
+// $ TC: O(n) | SC: O(n)
 void Inorder(Node* root, vi &arr){
     if(root == nullptr) return;
     Inorder(root -> left, arr);
@@ -25,6 +25,8 @@ vi inOrder(Node* root){
     return arr;
 }
 
+// $ Preorder Traversal
+// $ TC: O(n) | SC: O(n)
 void Preorder(Node* root, vi &arr){
     if(root == nullptr) return;
     arr.push_back(root -> data);
@@ -38,6 +40,8 @@ vi preOrder(Node* root){
     return arr;
 }
 
+// $ Postorder Traversal
+// $ TC: O(n) | SC: O(n)
 void Postorder(Node* root, vi &arr){
     if(root == nullptr) return;
     Postorder(root -> left, arr);
