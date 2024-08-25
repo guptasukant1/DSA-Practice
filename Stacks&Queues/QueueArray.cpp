@@ -2,7 +2,7 @@
 using namespace std;
 
 // $ Queue using Array
-
+// $ TC: O(1) | SC: O(n)
 class Queue{
     int *arr, start, end, currSize, maxSize;
     public:

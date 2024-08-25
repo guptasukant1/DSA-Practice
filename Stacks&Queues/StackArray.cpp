@@ -2,7 +2,7 @@
 using namespace std;
 
 // $ Stack using Array
-
+// $ TC: O(1) | SC: O(n)
 class Stack{
     int size, *arr, top;
     public:
