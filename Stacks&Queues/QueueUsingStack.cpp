@@ -42,7 +42,6 @@ class Queue{
     }
 };
 
-
 // $ Implement a Queue using 2 Stacks where TC of each op is O(1)
 // $ TC: O(push: 1, pop: 1 (amortised), top: n) | SC: O(2*n)
 class Queue1{
