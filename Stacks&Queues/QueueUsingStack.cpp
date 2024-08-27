@@ -94,5 +94,4 @@ int main() {
     q1.Push(5);
     cout << "The top of the queue is " << q1.Top() << endl;
     cout << "The size of the queue is " << q1.size() << endl;
-
 }
