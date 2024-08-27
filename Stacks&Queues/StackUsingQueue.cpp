@@ -2,7 +2,7 @@
 using namespace std;
 
 // $ Implement a Stack using a single Queue
-
+// $ TC: O(n) | SC: O(n)
 class Stack{
     queue<int> q;
     public:
