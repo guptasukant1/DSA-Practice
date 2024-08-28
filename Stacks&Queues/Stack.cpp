@@ -9,9 +9,7 @@ using namespace std;
 
 // ? Stack Ops
 class stacksol{
-
     public:
-
     int top;
     int size;
     int *arr;
@@ -56,7 +54,6 @@ class stacksol{
         }
         else return false;
     }
-
 };
 
 int main()
