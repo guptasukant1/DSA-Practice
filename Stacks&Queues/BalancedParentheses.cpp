@@ -2,7 +2,7 @@
 using namespace std;
 
 // $ Check for Balanced Parentheses
-
+// $ TC: O(n) | SC: O(n)
 bool isValid(string s){
     stack<char> st;
     for(auto it: s){
@@ -17,7 +17,6 @@ bool isValid(string s){
     }
     return st.empty();
 }
-
 
 int main()
 {
