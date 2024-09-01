@@ -33,12 +33,25 @@ int maxPSABe(vi &nums){
     return res;
 }
 
-// $ Optimal Approach 1
-// $ TC: O() | SC: O()
-
+// $ Optimal Approach 1 [4 cases: all +ve, even -ve rest +ve, odd -ve rest +ve, 0 present in array]
+// $ TC: O(n) | SC: O(1)
+int maxPSAOA1(vi &nums){
+    int n = nums.size();
+    int pre = 1, suff = 1; // * prefix moves from 0 -> n and suffix from n -> 0
+    int ans = INT_MIN;
+    for(int i = 0; i < n; i++){
+        if(pre == 0) pre =1; // * 0 elem would force to reset the prefix or suffix values whenever encountered
+        if(suff == 0) suff =1;
+        pre *= nums[i];
+        suff *= nums[n - i - 1];
+        ans = max(ans, max(pre, suff));
+    }
+    return ans;
+}
 
 int main() {
     vi nums = {1,2,-3,0,-4,-5};
     cout<<"The maximum product subarray: "<<maxProductSubArray(nums) << endl;
     cout<<"The maximum product subarray: "<<maxPSABe(nums) << endl;
+    cout<<"The maximum product subarray: "<<maxPSAOA1(nums) << endl;
 }
