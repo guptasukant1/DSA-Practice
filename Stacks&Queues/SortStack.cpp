@@ -1,10 +1,10 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-class sortStack{
-    // $
-    public:
+// $ Sort the elements of a stack
 
+class sortStack{
+    public:
     void sortedInsert(stack<int> &s, int num){
         if(s.empty() || ( !s.empty() && s.top()<num )){
             s.push(num);
@@ -17,7 +17,6 @@ class sortStack{
         s.push(n);
     }
 
-
     void sorting(stack<int> &s){
         if(s.empty()) return;
 
@@ -27,13 +26,9 @@ class sortStack{
         sorting(s);
         sortedInsert(s, num);
     }
-
 };
 
 int main(){
-
-    // $ Sort the elements of a stack
-
     int T;
     cin >> T;
     while (T--)
