@@ -1,8 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-
-
 // $ House Robber Problem
 // $ LC: 198. House Robber
 // | The problem states that we have to find the maximum amount of money that we can rob from the houses.

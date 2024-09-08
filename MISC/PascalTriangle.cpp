@@ -20,6 +20,12 @@ int pascalTriangle(int r, int c){
     return element;
 }
 
+// ? Variation 2 [print nth row of pascal's triangle]
+int pascalTriangleBeA(int r, int c){
+
+}
+
+
 // * Variation 1
 int main(){
     int r = 5;
@@ -28,4 +34,4 @@ int main(){
     cout << "The element at position (r,c) is: " << element;
 }
 
-// ? Variation 2 [print nth row of pascal's triangle]
+
