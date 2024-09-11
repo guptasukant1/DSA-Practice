@@ -49,6 +49,8 @@ int maxPSAOA1(vi &nums){
     return ans;
 }
 
+// $ Optimal Approach 2
+
 int main() {
     vi nums = {1,2,-3,0,-4,-5};
     cout<<"The maximum product subarray: "<<maxProductSubArray(nums) << endl;
