@@ -31,9 +31,9 @@ node* buildTree(node* root){
 
 // $ TC: O(n^2) -> O(nlogn)
 // $ Construct a tree from inorder and preorder
-// todo | Find the root from the preorder and then find the left and right subtree from the inorder
-// todo | Then recursively call the function for left and right subtree
-// todo | The position
+// | Find the root from the preorder and then find the left and right subtree from the inorder
+// | Then recursively call the function for left and right subtree
+// | The position
 int findPosition(int in[], int element, int n){
     for(int i = 0; i < n; i++){
         if(in[i] == element) return i;
@@ -125,7 +125,7 @@ node *buildTreeFromInPost(int in[], int post[], int n)
 // $ Burning a binary tree
 // $ TC: O(n)
 // $ SC: O(n) + O(n)
-// todo | Given a binary tree and a target node, the task is to find the minimum time required to burn the complete binary tree if the target node is set on fire.
+// | Given a binary tree and a target node, the task is to find the minimum time required to burn the complete binary tree if the target node is set on fire.
 // * createParentMapping is used to create a mapping of the nodes with their parent nodes and also returns the target node.
 node *createParentMapping(node *root, int target, map<node *, node *> &nodeToParent)
 {
