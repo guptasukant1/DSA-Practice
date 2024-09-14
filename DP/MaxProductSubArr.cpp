@@ -1,4 +1,4 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 #define vi vector<int>
 
@@ -6,25 +6,25 @@ using namespace std;
 
 // $ Brute Force Approach
 // $ TC: O(n^3) | SC: O(1)
-int maxProductSubArray(vi &nums){
+int maxProductSubArray(vi &nums) {
     int res = INT_MIN;
-    for(int i = 0; i < nums.size() - 1; i++){
-        for(int j = i + 1; j < nums.size(); j++){
+    for (int i = 0; i < nums.size() - 1; i++) {
+        for (int j = i + 1; j < nums.size(); j++) {
             int prod = 1;
-            for(int k = i; k <= j; k++) prod *= nums[k];
+            for (int k = i; k <= j; k++) prod *= nums[k];
             res = max(res, prod);
         }
-    }
+    }   
     return res;
 }
 
 // $ Better Approach
 // $ TC: O(n^2) | SC: O(1)
-int maxPSABe(vi &nums){
+int maxPSABe(vi &nums) {
     int res = INT_MIN;
-    for(int i = 0; i < nums.size() - 1; i++){
+    for (int i = 0; i < nums.size() - 1; i++) {
         int prod = nums[i];
-        for(int j = i + 1; j < nums.size(); j++){
+        for (int j = i + 1; j < nums.size(); j++) {
             res = max(res, prod);
             prod *= nums[j];
         }
@@ -33,27 +33,40 @@ int maxPSABe(vi &nums){
     return res;
 }
 
-// $ Optimal Approach 1 [4 cases: all +ve, even -ve rest +ve, odd -ve rest +ve, 0 present in array]
+//$ Optimal Approach 1 [4 cases: all +ve, even -ve rest +ve, odd -ve rest +ve, 0
+// present in array]
 // $ TC: O(n) | SC: O(1)
-int maxPSAOA1(vi &nums){
-    int n = nums.size();
-    int pre = 1, suff = 1; // * prefix moves from 0 -> n and suffix from n -> 0
-    int ans = INT_MIN;
-    for(int i = 0; i < n; i++){
-        if(pre == 0) pre =1; // * 0 elem would force to reset the prefix or suffix values whenever encountered
-        if(suff == 0) suff =1;
-        pre *= nums[i];
-        suff *= nums[n - i - 1];
-        ans = max(ans, max(pre, suff));
-    }
-    return ans;
+int maxPSAOA1(vi &nums) {
+  int n = nums.size();
+  int pre = 1, suff = 1; // * prefix moves from 0 -> n and suffix from n -> 0
+  int ans = INT_MIN;
+  for (int i = 0; i < n; i++) {
+    if (pre == 0) pre = 1; // * 0 elem would force to reset the prefix or suffix values
+    if (suff == 0) suff = 1;
+    pre *= nums[i];
+    suff *= nums[n - i - 1];
+    ans = max(ans, max(pre, suff));
+  }
+  return ans;
 }
 
-// $ Optimal Approach 2
+// $ Optimal Approach 2 [Kadane's Algorithm]
+// $ TC: O(n) | SC: O(1)
+int maxPSAOA2(vi &nums) {
+  int prod1 = nums[0], prod2 = nums[0], res = nums[0];
+  for (int i = 1; i < nums.size(); i++) {
+    int temp = max(nums[i], max(nums[i] * prod1, nums[i] * prod2));
+    prod2 = min(nums[i], min(nums[i] * prod1, nums[i] * prod2));
+    prod1 = temp;
+    res = max(res, prod1);
+  }
+  return res;
+}
 
 int main() {
-    vi nums = {1,2,-3,0,-4,-5};
-    cout<<"The maximum product subarray: "<<maxProductSubArray(nums) << endl;
-    cout<<"The maximum product subarray: "<<maxPSABe(nums) << endl;
-    cout<<"The maximum product subarray: "<<maxPSAOA1(nums) << endl;
+  vi nums = {1, 2, -3, 0, -4, -5};
+  cout << "The maximum product subarray: " << maxProductSubArray(nums) << endl;
+  cout << "The maximum product subarray: " << maxPSABe(nums) << endl;
+  cout << "The maximum product subarray: " << maxPSAOA1(nums) << endl;
+  cout << "The maximum product subarray: " << maxPSAOA2(nums) << endl;
 }
