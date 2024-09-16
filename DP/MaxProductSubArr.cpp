@@ -33,8 +33,7 @@ int maxPSABe(vi &nums) {
     return res;
 }
 
-//$ Optimal Approach 1 [4 cases: all +ve, even -ve rest +ve, odd -ve rest +ve, 0
-// present in array]
+//$ Optimal Approach 1 [4 cases: all +ve, even -ve rest +ve, odd -ve rest +ve, 0 present in array]
 // $ TC: O(n) | SC: O(1)
 int maxPSAOA1(vi &nums) {
   int n = nums.size();
