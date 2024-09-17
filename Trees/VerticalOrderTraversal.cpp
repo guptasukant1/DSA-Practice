@@ -69,6 +69,4 @@ int main() {
 
     cout << "Vertical Traversal: ";
     printResult(verticalTraversal);
-
-    return 0;
 }
