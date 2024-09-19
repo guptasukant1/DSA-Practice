@@ -3,7 +3,7 @@ using namespace std;
 #define vi vector<int>
 
 // $ Path from Root to given node
-// $ TC: O() | SC: O()
+// $ TC: O(n) | SC: O(n)
 struct Node {
     int data;
     Node *left;
