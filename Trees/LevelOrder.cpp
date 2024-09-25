@@ -39,7 +39,6 @@ class Solution {
     }
 };
 
-
 void printVector(const vector<int>& vec) {
     for (int num : vec) {
         cout << num << " ";
@@ -62,6 +61,4 @@ int main() {
     for (const vector<int>& level : result) {
         printVector(level);
     }
-
-    return 0;
 }
