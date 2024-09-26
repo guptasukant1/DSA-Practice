@@ -27,6 +27,24 @@ class Solution {
         int rh = getHeight(root -> right);
         return 1 + max(lh, rh);
     }
+
+    // $ Optimal Approach
+    // $ TC: O(n) | SC: O(1)
+    bool isBalancedOA(Node* root){
+        return getHeightOA(root) != -1;
+    }
+    int getHeightOA(Node* root){
+        if(!root) return 0;
+
+        int lh = getHeightOA(root -> left);
+        if(lh == -1) return -1;
+
+        int rh = getHeightOA(root -> right);
+        if(rh == -1) return -1;
+
+        if(abs(lh - rh) > 1) return -1;
+        return 1 + max(lh, rh);
+    }
 };
 
 int main() {
@@ -45,4 +63,7 @@ int main() {
     } else {
         cout << "The tree is not balanced." << endl;
     }
+
+    if(solution.isBalancedOA(root)) cout << "The tree is balanced." << endl;
+    else cout << "The tree is not balanced." << endl;
 }
