@@ -17,7 +17,7 @@ int countInversions(vi a){
 }
 
 // $ Optimal Approach[Merge Sort]
-// $ TC: O() | SC: O()
+// $ TC: O(n*logn) | SC: O(n)
 int merge(vi a, int low, int mid, int high){
     vi temp;
     int left = low;
@@ -57,9 +57,9 @@ int mergeSort(vector<int> &arr, int low, int high) {
     int cnt = 0;
     if (low >= high) return cnt;
     int mid = (low + high) / 2 ;
-    cnt += mergeSort(arr, low, mid);  // left half
-    cnt += mergeSort(arr, mid + 1, high); // right half
-    cnt += merge(arr, low, mid, high);  // merging sorted halves
+    cnt += mergeSort(arr, low, mid);  // * left half
+    cnt += mergeSort(arr, mid + 1, high); // * right half
+    cnt += merge(arr, low, mid, high);  // * merging sorted halves
     return cnt;
 }
 
