@@ -10,6 +10,7 @@ struct Node{
     Node* right;
     Node(int x) : data(x), left(nullptr), right(nullptr) {}
 };
+// ! REDO THE CONCEPT
 
 class Solution{
 public:

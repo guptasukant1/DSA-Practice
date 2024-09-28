@@ -20,6 +20,8 @@ int team(vector <int> & skill, int n) {
     return countPairs(skill, n);
 }
 
+// $ Optimal Approach
+// $ TC: O(2n*logn) | SC: O(n)
 void merge(vi &a, int low, int mid, int high){
     vi temp;
     int left = low;
@@ -68,8 +70,7 @@ int mergeSort(vi &a, int low, int high){
     return count;
 }
 
-int team1(vector <int> & skill, int n)
-{
+int team1(vector <int> & skill, int n){
     return mergeSort(skill, 0, n - 1);
 }
 

@@ -3,7 +3,7 @@ using namespace std;
 #define vi vector<int>
 
 // $ Stock Buy Sell to Maximize Profit
-// todo | Given an array of stock prices, find the maximum profit that can be earned by buying and selling stocks on different days.
+// | Given an array of stock prices, find the maximum profit that can be earned by buying and selling stocks on different days.
 
 // $ Brute-Force: maintain 2 loops, one for buying and one for selling, find the max profit from the values obtained
 // $ Time complexity: O(n^2)
