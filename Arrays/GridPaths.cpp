@@ -6,14 +6,13 @@ using namespace std;
 // $ Find out the unique paths from the top-left corner to the bottom-right corner of a grid.
 // | The grid is of size m x n. You can only move either down or right at any point in time.
 
-
 class Solution{
 public:
     // $ Brute Force Approach
     // $ TC: O(2^(m + n)) | SC: O(m + n) [recursive stack depth]
     int count_paths(int i, int j, int n, int m){
-        if(i == n - 1 and j == m - 1) return 1;
-        if(i >= n || j >= n) return 0;
+        if(i == n - 1 && j == m - 1) return 1;
+        if(i >= n || j >= m) return 0;
         else return count_paths(i + 1, j, n, m) + count_paths(i, j + 1, n, m);
     }
     int uniquePaths(int m, int n){
@@ -37,7 +36,7 @@ public:
     }
 
     // $ Optimal Approach [Combinatorics]
-    // $ TC: O() | SC: O()
+    // $ TC: O(n - 1 || m - 1) | SC: O(1)
     // | We have n + m - 2 paths for any case and the the paths can be found out by Combinations of n - 1 or m - 1 with n + m - 2
     // | The loop will calculate the combination value. 2 observations -> m + n - 2 steps and the specific directions to be put into each step.
     int uniquePathsOA(int n, int m){
@@ -52,13 +51,13 @@ public:
 
 int main(){
     Solution obj;
-    int totalCount= obj.uniquePaths(3,7);
+    int totalCount= obj.uniquePaths(3, 7);
     Solution o1;
     cout<<"The total number of Unique Paths are "<<totalCount<<endl;
-    int totalCount1= o1.uniquePathsBe(4,7);
+    int totalCount1= o1.uniquePathsBe(4, 7);
     cout<<"The total number of Unique Paths are "<<totalCount1<<endl;
     Solution o2;
-    int totalCount2 = o1.uniquePathsOA(51,9);
+    int totalCount2 = o1.uniquePathsOA(6, 9);
     cout<<"The total number of Unique Paths are "<< totalCount2 <<endl;
     
 }

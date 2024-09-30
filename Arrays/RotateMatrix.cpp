@@ -4,7 +4,7 @@ using namespace std;
 #define vi vector<int>
 
 // $ Rotate Matrix
-// todo | Given an n x n 2D matrix representing an image, rotate the image by 90 degrees (clockwise).
+// | Given an n x n 2D matrix representing an image, rotate the image by 90 degrees (clockwise).
 
 // $ Brute-Force: Maintain 2 loops, one for row and one for column. Traverse the matrix and copy the elements to the new matrix in the rotated position.
 // $ Time Complexity: O(n^2)

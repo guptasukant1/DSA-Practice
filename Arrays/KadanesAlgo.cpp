@@ -4,20 +4,17 @@ using namespace std;
 #define ll long long
 
 // $ Kadane's Algorithm
-// todo | Find the maximum sum subarray
+// | Find the maximum sum subarray
 
-ll maxSubArray(int arr[], int n)
-{
+ll maxSubArray(int arr[], int n){
     ll maximum = INT_MIN;
     ll sum = 0;
     int start = 0, s = -1, e = -1;
-    for (int i = 0; i < n; i++)
-    {
+    for (int i = 0; i < n; i++){
         if (sum == 0)
             start = i;
         sum += arr[i];
-        if (sum > maximum)
-        {
+        if (sum > maximum){
             maximum = sum;
             s = start;
             e = i;
@@ -27,8 +24,7 @@ ll maxSubArray(int arr[], int n)
     }
 
     cout << "SubArray: [";
-    for (int i = s; i <= e; i++)
-    {
+    for (int i = s; i <= e; i++){
         cout << arr[i] << " ";
     }
     cout << "]";
@@ -36,17 +32,7 @@ ll maxSubArray(int arr[], int n)
     return maximum;
 }
 
-int main()
-{
-    // vi arr;
-    // ll n;
-    // int x;
-    // cin >> n;
-    // for (int i = 0; i < n; i++)
-    // {
-    //     cin >> x;
-    //     arr.push_back(x);
-    // }
+int main(){
     int arr[] = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
     int n = sizeof(arr) / sizeof(arr[0]);
     ll subsum = maxSubArray(arr, n);

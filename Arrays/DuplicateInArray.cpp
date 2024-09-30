@@ -43,8 +43,7 @@ int findDuplicateO(vi &nums)
     int slow = nums[0];
     int fast = nums[0];
 
-    do
-    {
+    do{
         slow = nums[slow];
         fast = nums[nums[fast]];
     } while (slow != fast);

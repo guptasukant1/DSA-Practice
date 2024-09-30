@@ -3,7 +3,7 @@ using namespace std;
 #define vvi vector<vector<int>>
 
 // $ Overlapping Subintervals
-// todo | Given a list of intervals, find the number of intervals that are there in the list which overlap with each other.
+// | Given a list of intervals, find the number of intervals that are there in the list which overlap with each other.
 
 // $ Brute Force Approach
 // $ TC: O(nlogn) + O(2*n) [sort + 2 loops iteration, however we are skipping the intervals that are already merged with the previous intervals]

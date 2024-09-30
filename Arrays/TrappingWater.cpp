@@ -42,7 +42,7 @@ int trapBeA(vi &arr){
     return water;
 }
 
-// $ Optimal Approach [2 pointer approach -> set ptrs at ends, finding left and right max to to find whether water is trapped at the left or right end and adding to res]
+// $ Optimal Approach [2 pointer approach -> set ptrs at ends, finding left and right max to find whether water is trapped at the left or right end and adding to res]
 // $ [and avoiding separate calc of max left and right at each index]
 // $ TC: O(n) | SC: O(1)
 int trapOA(vi &arr){

@@ -3,7 +3,7 @@ using namespace std;
 #define vi vector<int>
 
 // $ Find next lexicographically greater permutation naive approach
-// todo | Find all permutations and sort them and return the next permutation
+// | Find all permutations and sort them and return the next permutation
 
 // $ Find next lexicographically greater permutation better approach
 vi nextPerm(vi &A)

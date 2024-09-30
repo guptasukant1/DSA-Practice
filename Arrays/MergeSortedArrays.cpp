@@ -47,12 +47,12 @@ void mergeArr(ll arr1[], ll arr2[], int n, int m)
 // $ Optimal Approach 1
 // $ O(min(n, m)) + O(n*logn) + O(m*logm)[swap + sort(arr1) + sort(arr2)]
 void mergeArr1(ll arr1[], ll arr2[], int n, int m){
-    int l = n - 1, r = 0;
+    int r = n - 1, l = 0;
 
     while(l >= 0 && r < m){
-        if(arr1[l] > arr2[r]){
-            swap(arr1[l], arr2[r]);
-            l--, r++;
+        if(arr1[r] > arr2[l]){
+            swap(arr1[r], arr2[l]);
+            r--, l++;
         }
         else
             break;
@@ -81,8 +81,9 @@ int main()
     ll arr2[] = {2, 3, 9};
     int n = sizeof(arr1) / sizeof(arr1[0]);
     int m = sizeof(arr2) / sizeof(arr2[0]);
-    // mergeArr(arr1, arr2, n, m);
-    mergeArr1(arr1, arr2, n, m);
+    mergeArr(arr1, arr2, n, m);
+    // mergeArr1(arr1, arr2, n, m);
+    // mergeA(arr1, arr2, n, m);
     cout << "The merged arrays are: " << "\n";
     cout << "arr1[] = ";
     for (int i = 0; i < n; i++)

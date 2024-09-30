@@ -3,7 +3,7 @@ using namespace std;
 #define vi vector<int>
 
 // $ Sort an array of 0s, 1s and 2s
-// todo | Given an array of size N containing only 0s, 1s, and 2s; sort the array in ascending order.
+// | Given an array of size N containing only 0s, 1s, and 2s; sort the array in ascending order.
 
 // $ Brute Force: sort them directly, via funtion or loops
 // $ Time complexity: O(nlogn)
@@ -13,25 +13,19 @@ using namespace std;
 
 // $ Optimal: Dutch National Flag Algorithm
 
-void sort012(vi &nums)
-{
+void sort012(vi &nums){
     int n = nums.size();
     int l = 0, m = 0, h = n - 1;
 
-    while (m <= h)
-    {
-        if (nums[m] == 0)
-        {
+    while (m <= h){
+        if (nums[m] == 0){
             swap(nums[l], nums[m]);
             l++;
             m++;
         }
-        else if (nums[m] == 1)
-        {
-            m++;
-        }
-        else
-        {
+        else if (nums[m] == 1) m++;
+        
+        else{
             swap(nums[m], nums[h]);
             h--;
         }
