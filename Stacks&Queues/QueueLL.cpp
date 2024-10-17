@@ -2,7 +2,7 @@
 using namespace std;
 
 // $ Queue using LL
-
+// $ TC: O(1) | SC: O(1)
 class Node
 {
  public: 
