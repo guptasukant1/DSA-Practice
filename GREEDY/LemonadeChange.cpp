@@ -23,7 +23,7 @@ bool lemonadeChange(vector<int> &bills){
                 fives--;
                 tens--;
             }
-            else if(fives >= 3) fives -+ 3;
+            else if(fives >= 3) fives -= 3;
             else return false;
         }
     }

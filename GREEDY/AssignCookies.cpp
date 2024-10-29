@@ -7,14 +7,18 @@ using namespace std;
 int cookies(vi &greed, vi &cookie){
     int n = greed.size();
     int m = cookie.size();
-    int l = 0, r = 0;
+
+    int coo = 0, gre = 0;
+
     sort(greed.begin(), greed.end());
     sort(cookie.begin(), cookie.end());
-    while(l < m && r < n){
-        if(greed[r] <= cookie[l]) r++;
-        l++;
+
+    while(coo < m && gre < n){
+        if(greed[gre] <= cookie[coo]) gre++;
+        coo++;
     }
-    return r;
+    
+    return gre;
 }
 
 int main(){
