@@ -61,7 +61,6 @@ node* rotateOA(node* head, int k){
     return head;
 }
 
-
 void printList(node* head) {
     while(head->next != NULL) {
         cout<<head->num<<"->";

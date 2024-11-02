@@ -11,13 +11,11 @@ using namespace std;
 // $ Optimal: Maintain 2 variables, minPrice and maxProfit, iterate through the array and update the variables accordingly
 // $ Time complexity: O(n)
 
-int maxProfit(vi &prices)
-{
+int maxProfit(vi &prices) {
     int maxProfit = 0, minPrice = INT_MAX;
     int n = prices.size();
 
-    for (int i = 0; i < n; i++)
-    {
+    for (int i = 0; i < n; i++) {
         minPrice = min(prices[i], minPrice);
         // * To improve runtime, update the maxProfit only when it is less than the current Profit
         int currentProfit = prices[i] - minPrice;
@@ -28,19 +26,16 @@ int maxProfit(vi &prices)
     return maxProfit;
 }
 
-int maxProfit1(vi &prices1)
-{
+int maxProfit1(vi &prices1) {
     int maxCur = 0, maxSoFar = 0;
-    for (int i = 1; i < prices1.size(); i++)
-    {
+    for (int i = 1; i < prices1.size(); i++) {
         maxCur = max(0, maxCur += prices1[i] - prices1[i - 1]);
         maxSoFar = max(maxCur, maxSoFar);
     }
     return maxSoFar;
 }
 
-int main()
-{
+int main() {
     vi prices = {2, 1, 5, 8, 6, 4};
     vi prices1 = {0, -1, 4, 3, 2, -2};
     int maxProf = maxProfit(prices);
