@@ -24,20 +24,16 @@ vvi rotateMatrix(vvi &matrix)
 
 // $ Optimal Approach: Transpose the matrix and then reverse the rows.
 // $ Time Complexity: O(n^2) [Yes, this is in fact the best case solution as it has 0ms runtime]
-
-void rotateMatrix1(vvi &matrix)
-{
+void rotateMatrix1(vvi &matrix){
     int n = matrix.size();
-    for (int i = 0; i < n; i++)
-    {
+    for (int i = 0; i < n; i++) {
         for (int j = 0; j < i; j++)
         // ! Swap/Transpose only bottom left triangular array
         {
             swap(matrix[i][j], matrix[j][i]);
         }
     }
-    for (int i = 0; i < n; i++)
-    {
+    for (int i = 0; i < n; i++) {
         reverse(matrix[i].begin(), matrix[i].end());
     }
 }
