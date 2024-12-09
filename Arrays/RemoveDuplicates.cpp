@@ -36,7 +36,7 @@ int main() {
         cout << arr[i] << " ";
     }
     cout << "\n";
-    int arr1[] = {1,1,2,2,2,3,3};
+    int arr1[] = {1,1,3,3, 4, 4, 6, 6};
     int n1 = sizeof(arr1)/sizeof(arr1[0]);
     int k1 = removeDuplicatesOA(arr1, n1);
     cout << "The array after removing duplicate elements is " << endl;
