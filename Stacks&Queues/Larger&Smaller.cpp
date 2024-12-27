@@ -1,8 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-class Solution
-{
+class Solution {
 public:
     // $ Next larger (first larger to the right) element of each element in an array/vector using stacks
     // $ TC: O(N) SC: O()
