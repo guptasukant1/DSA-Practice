@@ -32,7 +32,7 @@ vi twoSum2(int n, vector<int> &arr, int target) {
 }
 
 // $ Better Approach
-// $ TC: O() | SC: O()
+// $ TC: O(n) | SC: O(n)
 string twoSum1BeA(int n, vector<int> &arr, int target) {
     unordered_map<int, int> mpp;
     for(int i = 0; i < n; i++) {
@@ -44,9 +44,57 @@ string twoSum1BeA(int n, vector<int> &arr, int target) {
     return "NO";
 }
 
+// $ Better Approach 2nd
+// $ TC: O(n) | SC: O(n)
+vi twoSum2BeA(int n, vi &arr, int target) {
+    unordered_map<int, int> mpp;
+    for(int i = 0; i < n; i++) {
+        if(mpp.find(target - arr[i]) != mpp.end()) {
+            return {mpp[target - arr[i]], i};
+        }
+        mpp[arr[i]] = i;
+    }
+    return {-1, -1};
+}
+
+// $ Optimal Approach
+// $ TC: O(n + nlogn) | SC: O(1)
+string twoSum1OA(int n, vi &arr, int target) {
+    sort(arr.begin(), arr.end());
+    int left = 0, right = n - 1;
+    while(left < right) {
+        int sum = arr[left] + arr[right];
+        if(sum == target) {
+            return "YES";
+        }
+        else if(sum < target) left++;
+        else right--;
+    }
+    return "NO";
+}
+
+// $ Optimal Approach 2nd
+// $ TC: O(n + nlogn) | SC: O(2)
+// ! Indices are off !!!
+vi twoSum2OA(int n, vi &arr, int target) {
+    vector<pair<int, int>> vpii;
+    for(int i = 0; i < n; i++) {
+        vpii.push_back({arr[i], i});
+    }
+    sort(vpii.begin(), vpii.end());
+    int left = 0, right = n - 1;
+    while(left < right) {
+        int sum = vpii[left].first + vpii[right].first;
+        if(sum == target) return {vpii[left].second, vpii[right].second};
+        else if(sum < target) left++;
+        else right--;
+    }
+    return {-1, -1};
+}
+
 int main() {
     int n = 5;
-    vector<int> arr = {2, 6, 5, 8, 11};
+    vector<int> arr = {5, 6, 7, 1, 9};
     int target = 14;
 
     string ans = twoSum1(n, arr, target);
@@ -57,4 +105,13 @@ int main() {
 
     string ans2 = twoSum1BeA(n, arr, target);
     cout << "This is the answer for variant 1: " << ans2 << endl;
+
+    vi ans21 = twoSum2BeA(n, arr, target);
+    cout << "This is the answer for variant 2: [" << ans21[0] << ", " << ans21[1] << "]" << endl;
+
+    string ans3 = twoSum1OA(n, arr, target);
+    cout << "This is the answer for variant 1: " << ans3 << endl;
+
+    vi ans31 = twoSum2OA(n, arr, target);
+    cout << "This is the answer for variant 2: [" << ans31[0] << ", " << ans31[1] << "]" << endl;
 }

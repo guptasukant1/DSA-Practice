@@ -27,7 +27,7 @@ vi findMissingRep(vi a){
     }
     return {repeating, missing};
 }
-
+ 
 // $ Better Approach [Hashing]
 // $ TC: O(2*n) | SC: O(n)
 vi findMissingRepBe(vi a){
@@ -79,8 +79,6 @@ vi findMissingRepO2(vi a){
 
 
 }
-
-
 
 int main()
 {
