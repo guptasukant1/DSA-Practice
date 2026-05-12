@@ -5,7 +5,7 @@ using namespace std;
 
 // $ BFA
 // $ TC: O(n^2) | SC: O(1)
-int missingNumber(vector<int> &arr, int N) {
+int missingNumber(vector<int> &arr, int N)  {
     for(int i = 1; i <= N; i++) {
         int flag = 0;
         for(int j = 0; j < N - 1; j++) {
